@@ -2,8 +2,6 @@ import type { Metadata } from 'next';
 import './globals.css';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
-import { ThemeProvider } from 'next-themes';
-import { AnimatePresence } from 'framer-motion';
 import { Lato, Playfair_Display } from 'next/font/google';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
@@ -65,14 +63,10 @@ export default function RootLayout({
             <body
                 className={`${lato.variable} ${playfair.variable} antialiased`}
             >
-                <AnimatePresence mode="wait">
-                    <ThemeProvider attribute="class" defaultTheme="light">
-                        <Header />
-                        <main>{children}</main>
-                        <WhatsAppButton />
-                        <Footer />
-                    </ThemeProvider>
-                </AnimatePresence>
+                <Header />
+                <main>{children}</main>
+                <WhatsAppButton />
+                <Footer />
             </body>
         </html>
     );

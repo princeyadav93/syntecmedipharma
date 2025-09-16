@@ -1,158 +1,106 @@
-'use client';
+type Product = {
+    id: number;
+    brandName: string;
+    composition: string;
+    pack: string;
+    type: 'Syrups' | 'Ayurvedic Syrups' | 'Dry Syrups';
+    image: string;
+    mrp: number;
+    rate: number;
+};
 
-import { motion } from 'framer-motion';
-import Image from 'next/image';
-import Link from 'next/link';
-import { use } from 'react';
-
-// ------------------------------
-// Product Data (mock database)
-// ------------------------------
-const products = [
+const products: Product[] = [
     {
-        id: '1',
-        title: 'Herbal Digestive Tea',
-        description:
-            'A soothing tea blend made with natural herbs to improve digestion and overall wellness. Perfect for calming the body and mind.',
-        image: '/images/earcare.webp',
-        category: 'Nature’s Remedies',
-        benefits: [
-            '100% Natural Ingredients',
-            'Boosts Digestion',
-            'Soothing & Refreshing',
-        ],
-        ingredients: [
-            'Ginger Root',
-            'Peppermint Leaves',
-            'Chamomile',
-            'Lemon Balm',
-            'Fennel Seeds',
-        ],
+        id: 1,
+        brandName: 'Synteczyme',
+        composition: 'Digestive Enzyme Formula',
+        pack: '200ml',
+        type: 'Syrups',
+        image: '/images/saugvan.png',
+        mrp: 120,
+        rate: 95,
     },
     {
-        id: '2',
-        title: 'Calming Essential Oil Blend',
-        description:
-            'Relaxing oil blend for peace of mind and body balance. Ideal for aromatherapy or massage.',
-        image: '/images/earcare.webp',
-        category: 'Nature’s Remedies',
-        benefits: [
-            'Relieves Stress',
-            'Promotes Relaxation',
-            'Pure Essential Oils',
-        ],
-        ingredients: ['Lavender Oil', 'Ylang Ylang', 'Bergamot', 'Sandalwood'],
+        id: 2,
+        brandName: 'Herboheal',
+        composition: 'Ayurvedic Liver Tonic',
+        pack: '150ml',
+        type: 'Ayurvedic Syrups',
+        image: '/images/saugvan.png',
+        mrp: 150,
+        rate: 120,
     },
     {
-        id: '3',
-        title: 'Natural Skin Nourishing Cream',
-        description:
-            'Hydrating Ayurvedic cream for radiant skin made with natural botanicals.',
-        image: '/images/earcare.webp',
-        category: 'Nature’s Remedies',
-        benefits: ['Deeply Hydrating', 'Brightens Skin', 'Chemical-Free'],
-        ingredients: ['Aloe Vera', 'Coconut Oil', 'Turmeric', 'Saffron'],
+        id: 3,
+        brandName: 'Drymox',
+        composition: 'Amoxicillin Dry Syrup',
+        pack: '60ml',
+        type: 'Dry Syrups',
+        image: '/images/saugvan.png',
+        mrp: 80,
+        rate: 65,
     },
 ];
 
-export default function ProductPage({
-    params,
-}: {
-    params: Promise<{ id: string }>;
-}) {
-    const { id } = use(params);
-    const product = products.find((p) => p.id === id);
+export default function ProductDetails({ params }: { params: { id: string } }) {
+    const product = products.find((p) => p.id.toString() === params.id);
 
     if (!product) {
         return (
-            <div className="min-h-screen flex items-center justify-center bg-[var(--color-bg)] text-[var(--color-text)]">
-                <p className="text-lg font-medium">Product not found</p>
+            <div className="p-10 text-center text-gray-500">
+                Product not found.
             </div>
         );
     }
 
     return (
-        <section className="min-h-screen bg-[var(--color-bg)] text-[var(--color-text)] py-12">
-            <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-                {/* Product Image */}
-                <motion.div
-                    initial={{ opacity: 0, x: -40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    className="relative w-full h-80 md:h-[500px] rounded-lg overflow-hidden shadow-lg"
-                >
-                    <Image
+        <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-16 px-6 flex justify-center">
+            <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-start">
+                {/* Left: Product Image */}
+                <div className="bg-white border rounded-2xl shadow-lg p-8 flex items-center justify-center">
+                    <img
                         src={product.image}
-                        alt={product.title}
-                        height={500}
-                        width={500}
-                        priority
-                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                        className="object-cover"
+                        alt={product.brandName}
+                        className="max-h-80 object-contain"
                     />
-                </motion.div>
+                </div>
 
-                {/* Product Info */}
-                <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.6 }}
-                    viewport={{ once: true, amount: 0.3 }}
-                    className="space-y-6"
-                >
-                    <div className="flex justify-between">
-                        <Link href="/#contact">
-                            <p className="uppercase text-sm font-semibold text-theme">
-                                GET IN TOUCH
-                            </p>
-                        </Link>
-                        <p className="uppercase text-sm font-semibold text-theme">
-                            {product.category}
-                        </p>
-                    </div>
-                    <h1 className="text-3xl md:text-4xl font-bold leading-snug">
-                        {product.title}
+                {/* Right: Product Info */}
+                <div className="flex flex-col space-y-4">
+                    <h1 className="text-3xl font-extrabold text-gray-800">
+                        {product.brandName}
                     </h1>
-                    <p className="text-base md:text-lg  leading-relaxed">
-                        {product.description}
-                    </p>
-                </motion.div>
-            </div>
 
-            {/* Benefits */}
-            <div className="max-w-6xl mx-auto px-6 mt-16">
-                <h2 className="text-2xl font-bold mb-6">Benefits</h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                    {product.benefits.map((b, i) => (
-                        <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 30 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.5, delay: i * 0.2 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            className="p-6  rounded-lg shadow-sm border border-[var(--color-border)]"
-                        >
-                            <p className="font-medium">{b}</p>
-                        </motion.div>
-                    ))}
+                    <span
+                        className={`px-4 py-1 rounded-full text-sm font-semibold w-max ${
+                            product.type === 'Syrups'
+                                ? 'bg-rose-100 text-rose-700'
+                                : product.type === 'Ayurvedic Syrups'
+                                ? 'bg-emerald-100 text-emerald-700'
+                                : 'bg-sky-100 text-sky-700'
+                        }`}
+                    >
+                        {product.type}
+                    </span>
+
+                    <p className="text-gray-700">
+                        <strong>Composition:</strong> {product.composition}
+                    </p>
+                    <p className="text-gray-700">
+                        <strong>Pack:</strong> {product.pack}
+                    </p>
+                    <p className="text-gray-700">
+                        <strong>MRP:</strong> ₹{product.mrp}
+                    </p>
+                    <p className="text-gray-700">
+                        <strong>Rate:</strong> ₹{product.rate}
+                    </p>
+
+                    <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow transition">
+                        Contact for Order
+                    </button>
                 </div>
             </div>
-
-            {/* Ingredients */}
-            <div className="max-w-6xl mx-auto px-6 mt-16">
-                <h2 className="text-2xl font-bold mb-6">Ingredients</h2>
-                <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 text-sm ">
-                    {product.ingredients.map((ing, i) => (
-                        <li
-                            key={i}
-                            className="p-3  rounded-md shadow-sm border border-[var(--color-border)]"
-                        >
-                            ✅ {ing}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </section>
+        </main>
     );
 }

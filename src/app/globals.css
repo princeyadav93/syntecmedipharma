@@ -38,22 +38,6 @@
   --p-weight: 400;
 }
 
-.dark {
-  --color-bg: #111827;
-  --color-grayShade: #1a2336;
-  /* dark gray */
-  --color-text: #f9fafb;
-  /* gray-50 */
-  --color-primary: #22c55e;
-  /* green-500 */
-  --color-primary-hover: #16a34a;
-  /* green-600 */
-  --color-secondary: #d1d5db;
-  /* gray-300 */
-  --color-border: #374151;
-  /* gray-700 */
-}
-
 /* 🌍 Base Reset + Typography */
 @layer base {
   html {

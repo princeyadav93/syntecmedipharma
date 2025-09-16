@@ -4,7 +4,6 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import ThemeToggle from '../ThemeToggle';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 import Image from 'next/image';
 
@@ -25,9 +24,10 @@ export default function NavBar() {
                 <Link href="/">
                     <Image
                         alt="logo"
-                        src="/images/nav-logo.png"
+                        src="/images/nav-logo.svg"
                         width={110}
                         height={40}
+                        priority
                         className=" object-contain lg:ml-6 fill-transparent"
                     />
                 </Link>
@@ -71,12 +71,10 @@ export default function NavBar() {
                             Contact Us
                         </span>
                     </Link>
-                    <ThemeToggle />
                 </div>
 
                 {/* Mobile Controls */}
                 <div className="flex md:hidden items-center space-x-3">
-                    <ThemeToggle />
                     <button
                         onClick={() => setMenuOpen(!menuOpen)}
                         className="p-1"

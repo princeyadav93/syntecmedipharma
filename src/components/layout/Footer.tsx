@@ -22,6 +22,7 @@ export default function Footer() {
                             src="/images/nav-logo.png"
                             width={110}
                             height={40}
+                            priority
                             className=" object-contain lg:ml-6 fill-transparent"
                         />
                     </Link>
