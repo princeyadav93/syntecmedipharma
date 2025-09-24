@@ -1,30 +1,45 @@
-type Props = {
-    category: string;
-    setCategory: (cat: string) => void;
-};
+import React from 'react';
 
-const categories = ['All', 'Syrups', 'Ayurvedic Syrups', 'Dry Syrups'];
+interface FilterProductCategoryProps {
+    category: string;
+    setCategory: (category: string) => void;
+}
+
+const categories = [
+    { value: 'All', label: 'All Products', count: '∞' },
+    { value: 'Syrups', label: 'Syrups', count: '24' },
+    { value: 'Ayurvedic Syrups', label: 'Ayurvedic Syrups', count: '18' },
+    { value: 'Dry Syrups', label: 'Dry Syrups', count: '12' },
+];
 
 export default function FilterProductCategory({
     category,
     setCategory,
-}: Props) {
+}: FilterProductCategoryProps) {
     return (
-        <div className="w-full flex items-center justify-end mb-6">
-            <label className="mr-2">Categories:</label>
-            <select
-                value={category}
-                onChange={(e) => setCategory(e.target.value)}
-                className="w-full max-w-xs px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 
-                     shadow-sm 
-                   focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition"
-            >
-                {categories.map((cat) => (
-                    <option key={cat} value={cat} className="bg-bg">
-                        {cat}
-                    </option>
-                ))}
-            </select>
+        <div className="space-y-2">
+            {categories.map((cat) => (
+                <button
+                    key={cat.value}
+                    onClick={() => setCategory(cat.value)}
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-all duration-200 ${
+                        category === cat.value
+                            ? 'bg-blue-50 text-blue-700 border-2 border-blue-200 shadow-sm'
+                            : 'bg-white/60 text-gray-700 border border-gray-200 hover:bg-white hover:shadow-sm'
+                    }`}
+                >
+                    <span className="font-medium">{cat.label}</span>
+                    <span
+                        className={`text-xs px-2 py-1 rounded-full ${
+                            category === cat.value
+                                ? 'bg-blue-100 text-blue-600'
+                                : 'bg-gray-100 text-gray-500'
+                        }`}
+                    >
+                        {cat.count}
+                    </span>
+                </button>
+            ))}
         </div>
     );
 }

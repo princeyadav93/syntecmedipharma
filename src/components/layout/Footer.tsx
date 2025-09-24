@@ -19,7 +19,7 @@ export default function Footer() {
                     <Link href="/">
                         <Image
                             alt="logo"
-                            src="/images/nav-logo.png"
+                            src="/images/nav-logo.svg"
                             width={110}
                             height={40}
                             priority
