@@ -6,6 +6,7 @@ export async function POST(req: Request) {
     await dbConnect();
     try {
         const body = await req.json();
+        console.log(body);
 
         const newProduct = await Product.create({
             ...body,

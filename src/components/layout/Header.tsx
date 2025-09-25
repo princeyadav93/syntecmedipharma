@@ -5,7 +5,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
-import Image from 'next/image';
 
 const navLinks = [
     { name: 'Home', href: '/' },
@@ -22,12 +21,10 @@ export default function NavBar() {
             <div className="bg-nav  max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/">
-                    <Image
+                    <img
                         alt="logo"
                         src="/images/nav-logo.svg"
                         width={110}
-                        height={40}
-                        priority
                         className=" object-contain lg:ml-6 fill-transparent"
                     />
                 </Link>

@@ -1,5 +1,5 @@
 import { Package } from 'lucide-react';
-import { Product } from '@/lib/mockProducts';
+import { Product } from '@/store/useProductStore';
 
 export default function StatsCards({ products }: { products: Product[] }) {
     const statsData = [

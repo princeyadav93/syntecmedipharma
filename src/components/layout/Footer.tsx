@@ -2,7 +2,6 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import Image from 'next/image';
 
 export default function Footer() {
     return (
@@ -17,12 +16,10 @@ export default function Footer() {
                     className="text-center md:text-left"
                 >
                     <Link href="/">
-                        <Image
+                        <img
                             alt="logo"
                             src="/images/nav-logo.svg"
                             width={110}
-                            height={40}
-                            priority
                             className=" object-contain lg:ml-6 fill-transparent"
                         />
                     </Link>

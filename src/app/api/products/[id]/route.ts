@@ -33,7 +33,7 @@ export async function PATCH(
         }
 
         product.publish = !product.publish;
-        await product.save();
+        await product.save({ validateBeforeSave: false });
 
         return NextResponse.json(product);
     } catch (err: any) {

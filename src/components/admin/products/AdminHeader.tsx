@@ -9,24 +9,27 @@ export default function AdminHeader({
     setViewMode: (mode: 'grid' | 'list') => void;
 }) {
     return (
-        <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40">
+        <header className="bg-white/80 backdrop-blur-md border-b border-gray-200 sticky top-0 z-40 mt-6">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex items-center justify-between h-16">
-                    <div className="flex items-center space-x-4">
-                        <div className="flex items-center space-x-3">
-                            <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center">
-                                <Package className="h-5 w-5 text-white" />
-                            </div>
-                            <h1 className="text-xl font-bold text-gray-900">
-                                Product Management
-                            </h1>
+                <div className="flex flex-wrap items-center justify-between h-auto min-h-16 py-2 gap-3">
+                    {/* Left Section */}
+                    <div className="flex items-center space-x-3 min-w-0">
+                        <div className="w-8 h-8 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-lg flex items-center justify-center shrink-0">
+                            <Package className="h-5 w-5 text-white" />
                         </div>
+                        <h1 className="text-lg sm:text-xl font-bold text-gray-900 truncate">
+                            Product Management
+                        </h1>
                     </div>
 
-                    <div className="flex items-center space-x-3">
-                        <button className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-sm hover:shadow-md">
+                    {/* Right Section */}
+                    <div className="flex items-center space-x-3 w-full sm:w-auto justify-end flex-wrap gap-2">
+                        <button className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-200 shadow-sm hover:shadow-md text-sm sm:text-base">
                             <Plus className="h-4 w-4 mr-2" />
-                            Add Product
+                            Add
+                            <span className="hidden sm:inline">
+                                &nbsp;Product
+                            </span>
                         </button>
 
                         <div className="flex items-center bg-white rounded-lg border border-gray-200 p-1">

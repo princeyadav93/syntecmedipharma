@@ -1,7 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { Eye, EyeOff, Edit, Trash2 } from 'lucide-react';
-import { Product } from '@/lib/mockProducts';
+import { Product } from '@/store/useProductStore';
 import DeleteModal from '@/components/admin/products/DeleteModal';
 
 export default function AdminProductCard({
@@ -22,7 +22,7 @@ export default function AdminProductCard({
     if (viewMode === 'list') {
         return (
             <>
-                <div className="bg-white/70 rounded-2xl p-6 border shadow-sm hover:shadow-md transition">
+                <div className="bg-white/70 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
                     <div className="flex items-center space-x-6">
                         <img
                             src={product.images[0]}
@@ -117,7 +117,7 @@ export default function AdminProductCard({
 
     return (
         <>
-            <div className="bg-white/70 rounded-2xl overflow-hidden border shadow-sm hover:shadow-lg transition group">
+            <div className="bg-white/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition group">
                 <div className="relative">
                     <img
                         src={product.images[0]}

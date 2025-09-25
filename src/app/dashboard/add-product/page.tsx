@@ -16,6 +16,7 @@ export interface ProductFormValues {
     images: string[];
     brandName: string;
     composition: string;
+    category: string;
     description: string;
     mrp: string; // stored as string
     price: string; // stored as string
@@ -33,6 +34,7 @@ export default function AddProductForm() {
         mrp: '',
         price: '',
         quantity: '',
+        category: '',
         unit: QuantityUnit.PACKET,
         publish: false,
     });
@@ -129,6 +131,7 @@ export default function AddProductForm() {
                 images: [],
                 brandName: '',
                 composition: '',
+                category: '',
                 description: '',
                 mrp: '',
                 price: '',
@@ -210,6 +213,7 @@ export default function AddProductForm() {
                                                 onChange={(e) =>
                                                     handleFileChange(e, index)
                                                 }
+                                                required
                                                 className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
                                             />
                                             <div className="text-center">
@@ -285,6 +289,7 @@ export default function AddProductForm() {
                                         type="text"
                                         name="brandName"
                                         placeholder="Enter brand name"
+                                        required
                                         value={form.brandName}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
@@ -299,7 +304,22 @@ export default function AddProductForm() {
                                         type="text"
                                         name="composition"
                                         placeholder="Product composition"
+                                        required
                                         value={form.composition}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
+                                    />
+                                </div>
+                                <div className="space-y-2">
+                                    <label className="text-sm font-medium text-gray-700">
+                                        Category
+                                    </label>
+                                    <input
+                                        type="text"
+                                        name="category"
+                                        placeholder="Product Category"
+                                        required
+                                        value={form.category}
                                         onChange={handleChange}
                                         className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
                                     />
@@ -314,6 +334,7 @@ export default function AddProductForm() {
                                     name="description"
                                     placeholder="Detailed product description..."
                                     value={form.description}
+                                    required
                                     onChange={handleChange}
                                     rows={4}
                                     className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 resize-none outline-0"
@@ -354,6 +375,7 @@ export default function AddProductForm() {
                                             pattern="[0-9]*"
                                             name="mrp"
                                             placeholder="0"
+                                            required
                                             value={form.mrp}
                                             onChange={(e) => {
                                                 const value = e.target.value;
@@ -380,6 +402,7 @@ export default function AddProductForm() {
                                             pattern="[0-9]*"
                                             name="price"
                                             placeholder="0"
+                                            required
                                             value={form.price}
                                             onChange={(e) => {
                                                 const value = e.target.value;
@@ -404,6 +427,7 @@ export default function AddProductForm() {
                                             name="quantity"
                                             placeholder="0"
                                             value={form.quantity}
+                                            required
                                             onChange={(e) => {
                                                 const value = e.target.value;
                                                 if (/^\d{0,6}$/.test(value)) {

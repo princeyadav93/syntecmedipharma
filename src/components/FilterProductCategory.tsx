@@ -1,21 +1,45 @@
-import React from 'react';
+import React, { useMemo } from 'react';
+import { useProductStore } from '@/store/useProductStore';
 
 interface FilterProductCategoryProps {
     category: string;
     setCategory: (category: string) => void;
 }
 
-const categories = [
-    { value: 'All', label: 'All Products', count: '∞' },
-    { value: 'Syrups', label: 'Syrups', count: '24' },
-    { value: 'Ayurvedic Syrups', label: 'Ayurvedic Syrups', count: '18' },
-    { value: 'Dry Syrups', label: 'Dry Syrups', count: '12' },
-];
-
 export default function FilterProductCategory({
     category,
     setCategory,
 }: FilterProductCategoryProps) {
+    const { products } = useProductStore();
+
+    // Build categories dynamically from products
+    const categories = useMemo(() => {
+        const categoryMap: Record<string, number> = {};
+
+        products.forEach((p) => {
+            if (p.category) {
+                categoryMap[p.category] = (categoryMap[p.category] || 0) + 1;
+            }
+        });
+
+        // Transform into array for mapping
+        const formatted = Object.entries(categoryMap).map(([value, count]) => ({
+            value,
+            label: value,
+            count: count.toString(),
+        }));
+
+        // Add "All Products" to the beginning
+        return [
+            {
+                value: 'All',
+                label: 'All Products',
+                count: products.length.toString(),
+            },
+            ...formatted,
+        ];
+    }, [products]);
+
     return (
         <div className="space-y-2">
             {categories.map((cat) => (
@@ -28,9 +52,9 @@ export default function FilterProductCategory({
                             : 'bg-white/60 text-gray-700 border border-gray-200 hover:bg-white hover:shadow-sm'
                     }`}
                 >
-                    <span className="font-medium">{cat.label}</span>
+                    <span className="font-medium capitalize">{cat.label}</span>
                     <span
-                        className={`text-xs px-2 py-1 rounded-full ${
+                        className={`text-xs px-2 py-1 rounded-full  ${
                             category === cat.value
                                 ? 'bg-blue-100 text-blue-600'
                                 : 'bg-gray-100 text-gray-500'

@@ -80,7 +80,7 @@
   }
 
   p {
-    @apply leading-relaxed text-[var(--color-secondary)] py-4;
+    @apply leading-relaxed text-[var(--color-secondary)];
     font-size: var(--p-size);
     font-weight: var(--p-weight);
   }

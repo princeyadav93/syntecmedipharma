@@ -23,7 +23,7 @@ export default function ProductFilters({
                 showMobileFilters ? 'block' : 'hidden lg:block'
             }`}
         >
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border shadow-sm sticky top-24">
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 shadow-sm sticky top-24">
                 <div className="flex items-center justify-between mb-6">
                     <h2 className="text-lg font-semibold text-gray-900 flex items-center">
                         <Filter className="h-5 w-5 mr-2" />
@@ -53,7 +53,7 @@ export default function ProductFilters({
                         <select
                             value={publishFilter}
                             onChange={(e) => setPublishFilter(e.target.value)}
-                            className="w-full p-3 border rounded-xl focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full p-3 border outline-0 rounded-xl focus:ring-blue-500 focus:border-blue-500"
                         >
                             <option value="all">All Products</option>
                             <option value="published">Published Only</option>

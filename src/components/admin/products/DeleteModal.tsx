@@ -1,6 +1,6 @@
 'use client';
 import { AlertTriangle } from 'lucide-react';
-import { Product } from '@/lib/mockProducts';
+import { Product } from '@/store/useProductStore';
 
 export default function DeleteModal({
     product,

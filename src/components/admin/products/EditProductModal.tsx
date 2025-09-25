@@ -1,7 +1,9 @@
 'use client';
 import { useState } from 'react';
 import { Edit, X, Save, ImageIcon } from 'lucide-react';
-import { Product } from '@/lib/mockProducts';
+// import { Product } from '@/lib/mockProducts';
+import { useProductStore } from '@/store/useProductStore';
+import { Product } from '@/store/useProductStore';
 
 export default function EditProductModal({
     product,
@@ -12,6 +14,7 @@ export default function EditProductModal({
     onSave: (p: Product) => void;
     onCancel: () => void;
 }) {
+    const { products } = useProductStore();
     const [formData, setFormData] = useState<Product>({ ...product });
     const [isLoading, setIsLoading] = useState(false);
     const [imagePreview, setImagePreview] = useState(product.images[0] || '');
@@ -82,6 +85,20 @@ export default function EditProductModal({
                             className="w-full px-4 py-2 border rounded-xl focus:ring-blue-500"
                         />
                     </div>
+                    <div>
+                        <label className="block text-sm font-semibold mb-2">
+                            category *
+                        </label>
+                        <input
+                            type="text"
+                            value={formData.category}
+                            onChange={(e) =>
+                                handleChange('composition', e.target.value)
+                            }
+                            required
+                            className="w-full px-4 py-2 border rounded-xl focus:ring-blue-500"
+                        />
+                    </div>
 
                     {/* --- Description --- */}
                     <div>
@@ -99,7 +116,7 @@ export default function EditProductModal({
                     </div>
 
                     {/* --- Product Type --- */}
-                    <div>
+                    {/* <div>
                         <label className="block text-sm font-semibold mb-2">
                             Product Type *
                         </label>
@@ -119,7 +136,7 @@ export default function EditProductModal({
                             </option>
                             <option value="Dry Syrups">Dry Syrups</option>
                         </select>
-                    </div>
+                    </div> */}
 
                     {/* --- Quantity & Unit --- */}
                     <div className="grid grid-cols-2 gap-4">
