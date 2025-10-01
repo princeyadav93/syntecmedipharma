@@ -74,7 +74,7 @@ export default function ProductsPage() {
     }, [filtered, incrementVisibleCount]);
 
     return (
-        <main className="min-h-screen py-12 px-6 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+        <main className="min-h-screen py-12 px-6">
             <div className="max-w-7xl mx-auto">
                 <h1 className="text-3xl md:text-4xl font-extrabold mb-8 text-center">
                     Syntecmedipharma Products

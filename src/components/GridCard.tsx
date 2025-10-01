@@ -3,37 +3,40 @@ import FeatureCard from './FeatureCard';
 
 const features = [
     {
-        title: 'Herbal digestive tea',
-        description: 'A soothing tea blend for digestive health.',
-        image: '/images/saugvan.png',
-        href: '/products/1',
+        title: 'Wide Range of Tablets',
+        description:
+            'Our tablets cover everything from essential generics to specialized formulations, ensuring consistent quality and effective treatment options for pharmacies and hospitals.',
+        image: '/assets/tablets.png',
+        href: '/#',
     },
     {
-        title: 'Calming essential oil blend',
-        description: 'A serene blend for relaxation and peace.',
-        image: '/images/saugvan.png',
-        href: '/products/2',
+        title: 'Premium Soft Gels   ',
+        description:
+            ' Designed for better absorption and patient convenience, our soft gels and capsules meet the highest industry standards for safety and reliability',
+        image: '/assets/soft-gel.png',
+        href: '/#',
     },
     {
-        title: 'Natural skin nourishing cream',
-        description: 'Hydrating cream for radiant skin.',
-        image: '/images/saugvan.png',
-        href: '/products/3',
+        title: 'Authentic Ayurvedic Syrups',
+        description:
+            'Combining ancient herbal wisdom with modern practices, our Ayurvedic syrups promote natural wellness while maintaining trusted purity and efficacy..',
+        image: '/assets/ayur-syrup.png',
+        href: '/#',
     },
 ];
 
 export default function GridCard() {
     return (
-        <section className="w-full bg-[var(--color-bg)] text-[var(--color-text)]">
+        <section className="w-full bg-[var(--color-bg)] mt-6 md:mt-12 text-[var(--color-text)]">
             <div className="max-w-7xl mx-auto px-6">
                 <p
                     className="uppercase tracking-wider text-theme font-semibold text-sm"
                     id="products"
                 >
-                    Nature’s Remedies
+                    OUR PRODUCT RANGE
                 </p>
                 <h2 className="text-2xl md:text-3xl font-bold mt-2 mb-8">
-                    Discover holistic wellness solutions
+                    Quality Medicines Across Every Category
                 </h2>
 
                 {/* Grid */}

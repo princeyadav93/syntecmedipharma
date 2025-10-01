@@ -22,7 +22,7 @@ const AboutUs = () => {
                 <motion.div
                     className="text-center"
                     initial={initialProps}
-                    whileInView={whileInViewProps}
+                    animate={whileInViewProps}
                     transition={{ ...staggerTransition, delay: 0.1 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
@@ -41,13 +41,11 @@ const AboutUs = () => {
                         <motion.div
                             className="hidden md:block rounded-xl shadow-2xl overflow-hidden"
                             initial={initialProps}
-                            whileInView={whileInViewProps}
+                            animate={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
                             viewport={{ once: true, amount: 0.3 }}
                         >
-                            <div className="h-64 md:h-96 w-full bg-indigo-100 flex items-center justify-center">
-                                <span className="text-indigo-600 font-bold text-xl p-4 text-center"></span>
-                            </div>
+                            <img src="/assets/tablet-2.jpg" alt="" />
                         </motion.div>
 
                         {/* Text Content */}
@@ -55,7 +53,7 @@ const AboutUs = () => {
                             <motion.h2
                                 className="text-2xl font-bold text-gray-900"
                                 initial={initialProps}
-                                whileInView={whileInViewProps}
+                                animate={whileInViewProps}
                                 transition={{
                                     ...staggerTransition,
                                     delay: 0.3,
@@ -68,7 +66,7 @@ const AboutUs = () => {
                             <motion.p
                                 className="text-lg text-gray-600"
                                 initial={initialProps}
-                                whileInView={whileInViewProps}
+                                animate={whileInViewProps}
                                 transition={{
                                     ...staggerTransition,
                                     delay: 0.5,
@@ -86,7 +84,7 @@ const AboutUs = () => {
                             <motion.p
                                 className="text-lg text-gray-600 font-medium border-l-4 border-indigo-500 pl-4 py-1 rounded-sm shadow-sm"
                                 initial={initialProps}
-                                whileInView={whileInViewProps}
+                                animate={whileInViewProps}
                                 transition={{
                                     ...staggerTransition,
                                     delay: 0.2,
@@ -103,7 +101,7 @@ const AboutUs = () => {
                 </div>
 
                 {/* Distributor Focus Section (Key Pillars) */}
-                <div className="mt-20 pt-10 border-t border-gray-200">
+                <div className="mt-20 pt-10">
                     <motion.div
                         className="text-center max-w-3xl mx-auto mb-12"
                         initial={initialProps}
@@ -124,7 +122,7 @@ const AboutUs = () => {
                     <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
                         {/* Pillar 1: Reliable Supply */}
                         <motion.div
-                            className="relative bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+                            className="relative bg-white border-t-4 border-indigo-500 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
                             initial={initialProps}
                             whileInView={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
@@ -159,7 +157,7 @@ const AboutUs = () => {
 
                         {/* Pillar 2: Quality Assurance */}
                         <motion.div
-                            className="relative bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+                            className="relative bg-white border-t-4 border-indigo-500 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
                             initial={initialProps}
                             whileInView={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
@@ -194,7 +192,7 @@ const AboutUs = () => {
 
                         {/* Pillar 3: Timely Delivery */}
                         <motion.div
-                            className="relative bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+                            className="relative bg-white border-t-4 border-indigo-500 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
                             initial={initialProps}
                             whileInView={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
@@ -231,7 +229,7 @@ const AboutUs = () => {
 
                 {/* Contact/Corporate Info Section */}
                 <motion.div
-                    className="mt-20 pt-10 bg-white rounded-xl shadow-2xl p-6 sm:p-10 border-t-4 border-indigo-500"
+                    className="mt-20 pt-10 bg-white rounded-xl shadow-md p-6 sm:p-10 border-t-4 border-indigo-500"
                     initial={initialProps}
                     whileInView={whileInViewProps}
                     transition={{ ...staggerTransition, delay: 0.2 }}

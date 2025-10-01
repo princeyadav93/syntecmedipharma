@@ -2,7 +2,7 @@
 import { motion } from 'framer-motion';
 
 export default function WhatsAppButton() {
-    const phoneNumber = '+919354243125';
+    const phoneNumber = '+918929158671';
     const message = `Hey, I'd like to know more about your product.`;
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
         message
@@ -13,7 +13,7 @@ export default function WhatsAppButton() {
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg z-40"
+            className="fixed bottom-6 md:bottom-20 right-4 md:right-6 bg-green-500 hover:bg-green-600 text-white rounded-full p-4 shadow-lg z-40"
             whileHover={{ scale: 1.1 }}
             whileTap={{ scale: 0.9 }}
             initial={{ opacity: 0, y: 100 }}

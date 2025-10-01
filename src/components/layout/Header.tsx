@@ -8,7 +8,7 @@ import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
 
 const navLinks = [
     { name: 'Home', href: '/' },
-    { name: 'Products', href: '/products' },
+    { name: 'Products', href: '/#products' },
     { name: 'About Us', href: '/about-us' },
 ];
 
@@ -17,27 +17,27 @@ export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className="sticky top-0 z-50 navbar-bg shadow-sm transition-colors">
-            <div className="bg-nav  max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <nav className="bg-indigo-400 sticky top-0 z-50 navbar-bg shadow-sm transition-colors">
+            <div className="max-w-7xl mx-auto px-3 py-2 md:px-6 md:py-4 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/">
                     <img
                         alt="logo"
                         src="/images/nav-logo.svg"
                         width={110}
-                        className=" object-contain lg:ml-6 fill-transparent"
+                        className=" object-contain w-[70px] md:w-[110px] lg:ml-6 fill-transparent"
                     />
                 </Link>
 
                 {/* Nav Links (Desktop) */}
-                <ul className="hidden md:flex items-center space-x-8">
+                <ul className="hidden md:flex items-center space-x-8 ">
                     {navLinks.map(({ name, href }) => {
                         const isActive = pathname === href;
                         return (
                             <li key={name} className="relative">
                                 <Link
                                     href={href}
-                                    className={`transition-colors ${
+                                    className={`transition-colors text-white ${
                                         isActive
                                             ? 'text-theme font-semibold'
                                             : ' hover:text-theme'

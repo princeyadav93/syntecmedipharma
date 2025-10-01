@@ -17,8 +17,9 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-    title: 'Saugvan Ayurveda',
-    description: 'Saugvan Ayurveda',
+    title: 'Syntec Medipharma',
+    description:
+        'Licensed B2B pharma wholesaler supplying authentic allopathic medicines to chemists and clinics—batch‑verified stock, competitive bulk pricing, and fast nationwide delivery.',
     icons: [
         { rel: 'icon', url: '/favicon.ico' },
         {

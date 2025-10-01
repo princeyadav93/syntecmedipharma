@@ -27,8 +27,8 @@ export default function FeatureSection({
 }: FeatureSectionProps) {
     if (animationMode === 'animate') {
         return (
-            <section className="relative w-full bg-[var(--color-bg)] text-[var(--color-text)]">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6">
+            <section className="relative mt-6 md:mt-12 w-full bg-[var(--color-bg)] text-[var(--color-text)]">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center px-6">
                     {imageLeft && (
                         <motion.div
                             initial={{ opacity: 0, x: -40 }}
@@ -57,7 +57,7 @@ export default function FeatureSection({
                                     alt={title}
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     fill
-                                    className="object-contain"
+                                    className="object-fill"
                                 />
                             </motion.div>
                         </motion.div>
@@ -120,14 +120,14 @@ export default function FeatureSection({
                                     stiffness: 200,
                                     damping: 10,
                                 }}
-                                className="relative w-72 h-80 md:w-96 md:h-[500px] [perspective:1000px]"
+                                className="relative w-72 h-80 md:w-96 [perspective:1000px]"
                             >
                                 <Image
                                     src={image}
                                     alt={title}
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     fill
-                                    className="object-contain lg:ml-6"
+                                    className="object-fill lg:ml-6"
                                 />
                             </motion.div>
                         </motion.div>
@@ -137,8 +137,8 @@ export default function FeatureSection({
         );
     }
     return (
-        <section className="relative w-full bg-[var(--color-bg)] text-[var(--color-text)]">
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center px-6">
+        <section className="relative mt-6 md:mt-12 w-full bg-[var(--color-bg)] text-[var(--color-text)]">
+            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center px-6">
                 {imageLeft && (
                     <motion.div
                         initial={{ opacity: 0, x: -40 }}
@@ -160,14 +160,14 @@ export default function FeatureSection({
                                 stiffness: 200,
                                 damping: 10,
                             }}
-                            className="relative w-72 h-80 md:w-96 md:h-[500px] [perspective:1000px]"
+                            className="relative w-72 h-80 md:w-96 [perspective:1000px]"
                         >
                             <Image
                                 src={image}
                                 alt={title}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 fill
-                                className="object-contain"
+                                className="object-fill"
                             />
                         </motion.div>
                     </motion.div>

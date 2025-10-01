@@ -102,7 +102,7 @@ export default function ContactForm() {
                         viewport={{ once: true, amount: 0.3 }}
                     >
                         <p
-                            className="text-green-600 font-semibold uppercase text-xs tracking-wide mb-2"
+                            className="font-semibold uppercase text-xs tracking-wide mb-2"
                             id="contact"
                         >
                             Get in Touch
@@ -124,7 +124,7 @@ export default function ContactForm() {
                                     onChange={handleChange}
                                     required
                                     placeholder="Enter your name"
-                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
+                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#1b2636] text-sm"
                                 />
                             </div>
 
@@ -141,7 +141,7 @@ export default function ContactForm() {
                                     onChange={handleChange}
                                     required
                                     placeholder="Enter your number"
-                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
+                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#1b2636] text-sm"
                                 />
                             </div>
 
@@ -156,7 +156,7 @@ export default function ContactForm() {
                                     value={formData.address}
                                     onChange={handleChange}
                                     placeholder="Enter your address"
-                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
+                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#1b2636] text-sm"
                                 />
                             </div>
 
@@ -180,7 +180,7 @@ export default function ContactForm() {
                                     inputMode="numeric"
                                     pattern="\d{6}"
                                     maxLength={6}
-                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-green-500 text-sm"
+                                    className="w-full rounded-md border px-3 py-1.5 focus:outline-none focus:ring-2 focus:ring-[#1b2636] text-sm"
                                 />
                             </div>
 
@@ -193,7 +193,7 @@ export default function ContactForm() {
                                     checked={formData.consent}
                                     onChange={handleChange}
                                     required
-                                    className="mt-1 h-3 w-3 text-green-600 border-gray-300 rounded focus:ring-green-500 cursor-pointer"
+                                    className="mt-1 h-3 w-3 text-green-600 border-gray-300 rounded focus:ring-[#1b2636] cursor-pointer"
                                 />
                                 <label
                                     htmlFor="consent"
@@ -207,10 +207,9 @@ export default function ContactForm() {
                             {/* Submit */}
                             <motion.button
                                 type="submit"
-                                whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                                 disabled={loading}
-                                className="w-full bg-green-600 text-white font-semibold py-2 rounded-md shadow-md hover:bg-green-700 transition-colors duration-300 text-sm disabled:opacity-50 cursor-pointer"
+                                className="w-full btn-primary text-white font-semibold py-2 rounded-md shadow-md text-sm disabled:opacity-50 cursor-pointer"
                             >
                                 {loading ? 'Submitting...' : 'Submit'}
                             </motion.button>
@@ -228,7 +227,7 @@ export default function ContactForm() {
                             transition={{ duration: 0.25 }} // 🔥 nice zoom-out effect
                             className="bg-bg"
                         >
-                            <h2 className="text-2xl text-center font-bold text-green-700">
+                            <h2 className="text-2xl text-center font-bold">
                                 Thank you!
                             </h2>
                             <p className="mt-3">
@@ -247,19 +246,22 @@ export default function ContactForm() {
                     viewport={{ once: true, amount: 0.3 }}
                     className="p-5 rounded-lg bg-alternate text-sm md:mt-4"
                 >
-                    <h3 className="text-base font-semibold mb-2">
+                    <h3 className="text-base font-semibold mb-2 ">
                         Get in touch
                     </h3>
                     <p className="mb-3">
                         📧{' '}
                         <a
-                            href="mailto:example@email.com"
-                            className="text-green-600 hover:underline"
+                            href="mailto:syntecmedipharma@gmail.com"
+                            className="hover:underline"
                         >
-                            example@email.com
+                            syntecmedipharma@gmail.com
                         </a>
                     </p>
-                    <p className="mb-3">📍 Noida, Sector 18, India</p>
+                    <p className="mb-3">
+                        📍Shop No. 4 Sumer Complex, Nawada, Naharpur Road,
+                        Gurugram, Haryana 122001
+                    </p>
                     <div>
                         <h4 className="font-semibold mb-1">Hours</h4>
                         <ul className="space-y-0.5">

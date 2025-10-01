@@ -9,28 +9,28 @@ export default function Home() {
         <>
             <ModalForm />
             <Hero
-                title="Embrace natural wellness"
-                subtitle="Discover the power of ayurveda"
-                image="/images/saugvan.png"
-                buttonLabel="View Products"
-                buttonLink="/products"
+                title="Trusted Wholesale Partner in Healthcare"
+                subtitle="Providing quality medicines at competitive prices to pharmacies, hospitals, and distributors."
+                image="/images/hero-image.jpg"
+                buttonLabel="Explore Products"
+                buttonLink="/#products"
             />
             <FeatureSection
-                eyebrow="Embrace Wellness Naturally"
-                title="Holistic ayurvedic solutions for you"
-                description="At Saugvan Ayurveda, we believe in the power of nature to heal and restore balance. Our range of natural and holistic Ayurvedic products is designed to enhance your health and well-being. We draw from ancient wisdom and modern practices to create solutions that nurture your body, mind, and spirit. Our commitment to quality ensures that every product is crafted with care, using the finest ingredients sourced sustainably. Discover a path to wellness that resonates with your natural self."
+                eyebrow="Quality Assured Pharmaceuticals"
+                title="Reliable Wholesale Medicine Solutions for Your Business"
+                description="At Syntec Medipharma, we are committed to being your trusted partner in healthcare distribution. We specialize in providing a wide range of high-quality medicines at competitive wholesale prices, supplying pharmacies, hospitals, and healthcare providers across the region. With a focus on reliability, authenticity, and timely delivery, we ensure that every product meets strict industry standards and regulations. Whether you need branded pharmaceuticals, generic medicines, or specialized healthcare products, Syntec Medipharma is here to support your business with consistency and care."
                 linkLabel="Get in touch"
                 linkHref="/#contact"
-                image="/images/earcare.webp"
+                image="/assets/section-1.jpg"
                 animationMode="animate"
             />
             <FeatureSection
-                eyebrow="Crafted with Care"
-                title="Sustainably sourced natural ingredients"
-                description="All our herbal formulations are carefully designed using sustainably sourced, authentic Ayurvedic ingredients. We work closely with trusted growers to ensure the highest purity and potency."
+                eyebrow="COMMITTED TO QUALITY"
+                title="Authentic Medicines, Trusted Supply"
+                description="At Syntec Medipharma, our wholesale medicines are sourced from certified manufacturers and go through rigorous quality checks to ensure safety, authenticity, and effectiveness. We partner with trusted suppliers to deliver reliable healthcare products that pharmacies, hospitals, and distributors can count on. With us, you get more than just medicines—you gain a dependable partner dedicated to your business growth and patient care."
                 linkLabel="Learn"
                 linkHref="/#contact"
-                image="/images/earcare.webp"
+                image="/assets/section-01.jpg"
                 imageLeft
                 animationMode="whileInView"
             />

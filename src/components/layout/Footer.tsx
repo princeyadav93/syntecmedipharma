@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="footer-bg border-t border-gray-200 dark:border-gray-700 transition-colors">
-            <div className="max-w-7xl mx-auto px-6 py-10 flex flex-col md:flex-row justify-between items-center md:items-start gap-6">
+        <footer className="bg-indigo-400 shadow-sm transition-colors">
+            <div className="max-w-7xl mx-auto px-3 py-2 md:px-6 md:py-4 flex flex-col md:flex-row justify-between items-center md:items-start gap-2 md:gap-6">
                 {/* Logo + Copyright */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -23,7 +23,7 @@ export default function Footer() {
                             className=" object-contain lg:ml-6 fill-transparent"
                         />
                     </Link>
-                    <p className="text-sm">
+                    <p className="text-sm text-white mt-2">
                         © {new Date().getFullYear()} Saugvan Ayurveda. All
                         rights reserved.
                     </p>
@@ -35,17 +35,20 @@ export default function Footer() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                     viewport={{ once: true }}
-                    className="flex flex-wrap justify-center md:justify-end gap-6 text-sm"
+                    className="flex flex-wrap justify-center md:justify-end p-2 md:p-6 gap-6 text-sm "
                 >
                     <li>
-                        <Link href="/faq" className="hover:text-theme">
+                        <Link
+                            href="/faq"
+                            className="hover:text-theme text-white"
+                        >
                             FAQ
                         </Link>
                     </li>
                     <li>
                         <Link
                             href="/privacy-policy"
-                            className="hover:text-theme"
+                            className="hover:text-theme text-white"
                         >
                             Privacy Policy
                         </Link>
@@ -53,7 +56,7 @@ export default function Footer() {
                     <li>
                         <Link
                             href="/terms-and-conditions"
-                            className="hover:text-theme"
+                            className="hover:text-theme text-white"
                         >
                             Terms and Conditions
                         </Link>

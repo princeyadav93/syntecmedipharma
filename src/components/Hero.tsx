@@ -61,7 +61,7 @@ export default function Hero({
                         className="mt-6"
                     >
                         <Link href={buttonLink}>
-                            <button className="btn-primary">
+                            <button className="btn-primary cursor-pointer">
                                 {buttonLabel}
                             </button>
                         </Link>
