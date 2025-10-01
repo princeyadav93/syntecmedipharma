@@ -1,6 +1,6 @@
 'use client';
 import { Filter, X } from 'lucide-react';
-import FilterProductCategory from '@/components/FilterProductCategory';
+import FilterProductCategory from '@/components/admin/products/FilterProductCategory';
 
 export default function ProductFilters({
     category,

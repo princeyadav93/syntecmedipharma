@@ -4,19 +4,24 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 
 type Product = {
-    id: number;
+    _id: string;
+    images: string[];
     brandName: string;
     composition: string;
-    pack: string;
-    type: 'Syrups' | 'Ayurvedic Syrups' | 'Dry Syrups';
-    image: string;
+    category: string;
+    description?: string;
+    quantity: number;
+    unit: string;
+    mrp: number;
+    price: number;
+    publish: boolean;
 };
 
 export default function ProductCard({ product }: { product: Product }) {
     const badgeColor =
-        product.type === 'Syrups'
+        product.category === 'Syrups'
             ? 'bg-rose-100 text-rose-700 dark:bg-rose-900 dark:text-rose-200'
-            : product.type === 'Ayurvedic Syrups'
+            : product.category === 'Ayurvedic Syrups'
             ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900 dark:text-emerald-200'
             : 'bg-sky-100 text-sky-700 dark:bg-sky-900 dark:text-sky-200';
 
@@ -27,12 +32,12 @@ export default function ProductCard({ product }: { product: Product }) {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
         >
-            <Link href={`/products/${product.id}`}>
-                <div className="max-w-sm w-full rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:scale-[1.02] cursor-pointer">
+            <Link href={`/products/${product._id}`}>
+                <div className="max-w-sm w-full rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:scale-[1.02] cursor-pointer bg-white">
                     {/* Product Image */}
                     <div className="h-44 w-full  flex items-center justify-center">
                         <img
-                            src={product.image}
+                            src={product.images[0]}
                             alt={product.brandName}
                             className="w-full h-full object-contain"
                         />
@@ -48,7 +53,7 @@ export default function ProductCard({ product }: { product: Product }) {
                             <span
                                 className={`px-2 py-0.5 text-xs font-medium rounded-full ${badgeColor}`}
                             >
-                                {product.type}
+                                {product.category}
                             </span>
                         </div>
 
@@ -58,7 +63,7 @@ export default function ProductCard({ product }: { product: Product }) {
                         </p>
 
                         {/* Pack */}
-                        <p className="text-sm p-0">Pack: {product.pack}</p>
+                        <p className="text-sm p-0">Pack: {product.unit}</p>
                     </div>
                 </div>
             </Link>

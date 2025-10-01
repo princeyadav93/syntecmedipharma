@@ -1,49 +1,41 @@
-type Product = {
-    id: number;
-    brandName: string;
-    composition: string;
-    pack: string;
-    type: 'Syrups' | 'Ayurvedic Syrups' | 'Dry Syrups';
-    image: string;
-    mrp: number;
-    rate: number;
+'use client';
+import { motion } from 'framer-motion';
+import { ProductGallery } from '@/components/userProduct/ProductGallery';
+import { ProductInfo } from '@/components/userProduct/ProductInfo';
+import type { Product } from '@/store/useProductStore';
+import { useProductStore } from '@/store/useProductStore';
+import { use } from 'react';
+
+// Mock product data - replace with your actual data source
+const mockProduct: Product = {
+    _id: 'PROD123456',
+    images: [
+        'https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=800&h=800&fit=crop',
+        'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=800&fit=crop',
+        'https://images.unsplash.com/photo-1587049352846-4a222e784acc?w=800&h=800&fit=crop',
+        'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&h=800&fit=crop',
+    ],
+    brandName: 'Premium Organic Quinoa',
+    composition: '100% Organic White Quinoa',
+    category: 'Grains & Seeds',
+    description:
+        'Experience the finest quality organic quinoa, carefully sourced from sustainable farms. Rich in protein, fiber, and essential nutrients, our quinoa is perfect for salads, bowls, and as a nutritious side dish. Gluten-free and naturally delicious.',
+    quantity: 500,
+    unit: 'g',
+    mrp: 450,
+    price: 349,
+    publish: true,
 };
 
-const products: Product[] = [
-    {
-        id: 1,
-        brandName: 'Synteczyme',
-        composition: 'Digestive Enzyme Formula',
-        pack: '200ml',
-        type: 'Syrups',
-        image: '/images/saugvan.png',
-        mrp: 120,
-        rate: 95,
-    },
-    {
-        id: 2,
-        brandName: 'Herboheal',
-        composition: 'Ayurvedic Liver Tonic',
-        pack: '150ml',
-        type: 'Ayurvedic Syrups',
-        image: '/images/saugvan.png',
-        mrp: 150,
-        rate: 120,
-    },
-    {
-        id: 3,
-        brandName: 'Drymox',
-        composition: 'Amoxicillin Dry Syrup',
-        pack: '60ml',
-        type: 'Dry Syrups',
-        image: '/images/saugvan.png',
-        mrp: 80,
-        rate: 65,
-    },
-];
+export default function ProductPage({
+    params,
+}: {
+    params: Promise<{ id: string }>;
+}) {
+    const { products } = useProductStore();
+    const { id } = use(params);
 
-export default function ProductDetails({ params }: { params: { id: string } }) {
-    const product = products.find((p) => p.id.toString() === params.id);
+    const product = products.find((p) => p._id.toString() === id);
 
     if (!product) {
         return (
@@ -52,55 +44,63 @@ export default function ProductDetails({ params }: { params: { id: string } }) {
             </div>
         );
     }
-
     return (
-        <main className="min-h-screen bg-gradient-to-b from-gray-50 to-gray-100 py-16 px-6 flex justify-center">
-            <div className="max-w-5xl w-full grid md:grid-cols-2 gap-12 items-start">
-                {/* Left: Product Image */}
-                <div className="bg-white border rounded-2xl shadow-lg p-8 flex items-center justify-center">
-                    <img
-                        src={product.image}
-                        alt={product.brandName}
-                        className="max-h-80 object-contain"
-                    />
-                </div>
-
-                {/* Right: Product Info */}
-                <div className="flex flex-col space-y-4">
-                    <h1 className="text-3xl font-extrabold text-gray-800">
-                        {product.brandName}
-                    </h1>
-
-                    <span
-                        className={`px-4 py-1 rounded-full text-sm font-semibold w-max ${
-                            product.type === 'Syrups'
-                                ? 'bg-rose-100 text-rose-700'
-                                : product.type === 'Ayurvedic Syrups'
-                                ? 'bg-emerald-100 text-emerald-700'
-                                : 'bg-sky-100 text-sky-700'
-                        }`}
+        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+            {/* Main Content */}
+            <main className="container mx-auto px-4 py-8 md:py-12">
+                <div className="grid md:grid-cols-2 gap-8 lg:gap-12 max-w-7xl mx-auto">
+                    {/* Product Gallery */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5 }}
                     >
-                        {product.type}
-                    </span>
+                        <ProductGallery
+                            images={product.images}
+                            productName={product.brandName}
+                        />
+                    </motion.div>
 
-                    <p className="text-gray-700">
-                        <strong>Composition:</strong> {product.composition}
-                    </p>
-                    <p className="text-gray-700">
-                        <strong>Pack:</strong> {product.pack}
-                    </p>
-                    <p className="text-gray-700">
-                        <strong>MRP:</strong> ₹{product.mrp}
-                    </p>
-                    <p className="text-gray-700">
-                        <strong>Rate:</strong> ₹{product.rate}
-                    </p>
-
-                    <button className="mt-6 px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg shadow transition">
-                        Contact for Order
-                    </button>
+                    {/* Product Information */}
+                    <div>
+                        <ProductInfo product={product} />
+                    </div>
                 </div>
-            </div>
-        </main>
+
+                {/* Additional Sections */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.4 }}
+                    className="max-w-7xl mx-auto mt-12"
+                >
+                    <div className="grid md:grid-cols-3 gap-6">
+                        <div className="p-6 rounded-xl bg-card  text-center bg-white">
+                            <div className="text-4xl mb-2">🚚</div>
+                            <h3 className="font-semibold mb-1">Bulk Orders</h3>
+                            <p className="text-sm text-muted-foreground">
+                                Special pricing for large quantities
+                            </p>
+                        </div>
+                        <div className="p-6 rounded-xl bg-card  text-center bg-white">
+                            <div className="text-4xl mb-2">✨</div>
+                            <h3 className="font-semibold mb-1">
+                                Premium Quality
+                            </h3>
+                            <p className="text-sm text-muted-foreground">
+                                100% Organic & Certified
+                            </p>
+                        </div>
+                        <div className="p-6 rounded-xl bg-card  text-center bg-white">
+                            <div className="text-4xl mb-2">🤝</div>
+                            <h3 className="font-semibold mb-1">B2B Support</h3>
+                            <p className="text-sm text-muted-foreground">
+                                Dedicated account managers
+                            </p>
+                        </div>
+                    </div>
+                </motion.div>
+            </main>
+        </div>
     );
 }
