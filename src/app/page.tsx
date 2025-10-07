@@ -2,12 +2,10 @@ import ContactForm from '@/components/ContactForm';
 import FeatureSection from '@/components/FeatureSection';
 import GridCard from '@/components/GridCard';
 import Hero from '@/components/Hero';
-import ModalForm from '@/components/ModalForm';
 
 export default function Home() {
     return (
         <>
-            <ModalForm />
             <Hero
                 title="Trusted Wholesale Partner in Healthcare"
                 subtitle="Providing quality medicines at competitive prices to pharmacies, hospitals, and distributors."
