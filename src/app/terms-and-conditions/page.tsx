@@ -123,8 +123,8 @@ export default function TermsAndConditions() {
                 <motion.div
                     className="mt-12 pt-10 border-t border-gray-300"
                     initial={initialProps}
-                    animate={whileInViewProps}
-                    transition={{ ...staggerTransition }}
+                    whileInView={whileInViewProps}
+                    transition={{ ...staggerTransition, delay: 0.2 }}
                     viewport={viewportConfig}
                 >
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">

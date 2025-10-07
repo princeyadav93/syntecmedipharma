@@ -121,7 +121,7 @@ export default function PrivacyPolicy() {
                     className="mt-12 pt-10 border-t border-gray-300"
                     initial={initialProps}
                     whileInView={whileInViewProps}
-                    transition={{ ...staggerTransition, delay: 0.8 }}
+                    transition={{ ...staggerTransition, delay: 0.2 }}
                     viewport={viewportConfig}
                 >
                     <h2 className="text-2xl font-bold text-gray-900 mb-4">

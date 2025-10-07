@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { Mail, MapPin } from 'lucide-react';
 import { useState } from 'react';
 
 interface FormData {
@@ -249,8 +250,8 @@ export default function ContactForm() {
                     <h3 className="text-base font-semibold mb-2 ">
                         Get in touch
                     </h3>
-                    <p className="mb-3">
-                        📧{' '}
+                    <p className="mb-3 flex gap-1 items-center">
+                        <Mail className="w-5 h-5" />
                         <a
                             href="mailto:syntecmedipharma@gmail.com"
                             className="hover:underline"
@@ -258,8 +259,9 @@ export default function ContactForm() {
                             syntecmedipharma@gmail.com
                         </a>
                     </p>
-                    <p className="mb-3">
-                        📍Shop No. 4 Sumer Complex, Nawada, Naharpur Road,
+                    <p className="mb-3 flex gap-1">
+                        <MapPin className="w-12 h-12 md:w-6 md:h-6" />
+                        Shop No. 4 Sumer Complex, Nawada, Naharpur Road,
                         Gurugram, Haryana 122001
                     </p>
                     <div>

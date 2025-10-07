@@ -24,7 +24,7 @@ export default function Footer() {
                         />
                     </Link>
                     <p className="text-sm text-white mt-2">
-                        © {new Date().getFullYear()} Saugvan Ayurveda. All
+                        © {new Date().getFullYear()} Syntec Medi Pharma. All
                         rights reserved.
                     </p>
                 </motion.div>
