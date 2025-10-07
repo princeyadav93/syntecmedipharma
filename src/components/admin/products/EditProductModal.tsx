@@ -1,8 +1,6 @@
 'use client';
 import { useState } from 'react';
-import { Edit, X, Save, ImageIcon } from 'lucide-react';
-// import { Product } from '@/lib/mockProducts';
-import { useProductStore } from '@/store/useProductStore';
+import { Edit, X, Save } from 'lucide-react';
 import { Product } from '@/store/useProductStore';
 
 export default function EditProductModal({
@@ -14,12 +12,13 @@ export default function EditProductModal({
     onSave: (p: Product) => void;
     onCancel: () => void;
 }) {
-    const { products } = useProductStore();
     const [formData, setFormData] = useState<Product>({ ...product });
     const [isLoading, setIsLoading] = useState(false);
-    const [imagePreview, setImagePreview] = useState(product.images[0] || '');
 
-    const handleChange = (field: keyof Product, value: any) => {
+    const handleChange = <K extends keyof Product>(
+        field: K,
+        value: Product[K]
+    ) => {
         setFormData((prev) => ({ ...prev, [field]: value }));
     };
 

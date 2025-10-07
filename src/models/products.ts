@@ -1,11 +1,24 @@
-import mongoose, { Schema, model } from 'mongoose';
+import mongoose, { Schema, model, models } from 'mongoose';
 
 export enum QuantityUnit {
     PACKET = 'packet',
     ML = 'ml',
 }
 
-const ProductSchema = new Schema(
+export interface IProduct {
+    images: string[];
+    brandName: string;
+    composition: string;
+    description?: string;
+    mrp: number;
+    price: number;
+    quantity: number;
+    unit: QuantityUnit;
+    publish: boolean;
+    category: string;
+}
+
+const ProductSchema = new Schema<IProduct>(
     {
         images: [{ type: String, required: true }],
         brandName: { type: String, required: true },
@@ -26,7 +39,7 @@ const ProductSchema = new Schema(
 );
 
 const Product =
-    (mongoose.models?.Product as mongoose.Model<any>) ||
-    model('Product', ProductSchema);
+    (models.Product as mongoose.Model<IProduct>) ||
+    model<IProduct>('Product', ProductSchema);
 
 export { Product };

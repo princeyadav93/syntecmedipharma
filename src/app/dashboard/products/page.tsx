@@ -74,16 +74,20 @@ export default function AdminProductsPage() {
 
     // Infinite scroll
     useEffect(() => {
-        if (!loadMoreRef.current) return;
+        const node = loadMoreRef.current; // ✅ capture it at the start
+        if (!node) return;
+
         const observer = new IntersectionObserver(
             (entries) => {
                 if (entries[0].isIntersecting) incrementVisibleCount();
             },
             { threshold: 1.0 }
         );
-        observer.observe(loadMoreRef.current);
+
+        observer.observe(node);
+
         return () => {
-            if (loadMoreRef.current) observer.unobserve(loadMoreRef.current);
+            observer.unobserve(node); // ✅ cleanup uses same node
         };
     }, [filtered, incrementVisibleCount]);
 

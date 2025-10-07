@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+import Image from 'next/image';
 
 interface ProductGalleryProps {
     images: string[];
@@ -80,7 +81,8 @@ export const ProductGallery = ({
                                     : 'border-transparent hover:border-border'
                             }`}
                         >
-                            <img
+                            <Image
+                                fill
                                 src={image}
                                 alt={`${productName} thumbnail ${index + 1}`}
                                 className="w-full h-full object-cover"

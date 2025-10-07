@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import Image from 'next/image';
 type Product = {
     _id: string;
     brandName: string;
@@ -26,9 +27,11 @@ export default function AdminProductCard({
 
     return (
         <div className="border rounded-lg p-4 shadow hover:shadow-lg transition">
-            <img
+            <Image
                 src={product.image}
                 alt={product.brandName}
+                width={200}
+                height={200}
                 className="w-full h-40 object-cover rounded"
             />
             <h3 className="font-bold mt-3">{product.brandName}</h3>

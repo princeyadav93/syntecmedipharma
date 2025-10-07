@@ -77,8 +77,8 @@ export default function PrivacyPolicy() {
                         Privacy Policy
                     </h1>
                     <p className="mt-2 text-lg text-gray-500">
-                        Syntec Medi Pharma's Commitment to Data Security and
-                        Confidentiality.
+                        Syntec Medi Pharma&apos;s Commitment to Data Security
+                        and Confidentiality.
                     </p>
                     <p className="text-sm text-gray-400 mt-1">
                         Last Updated: October 2025

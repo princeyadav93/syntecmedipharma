@@ -160,5 +160,3 @@ export default function TermsAndConditions() {
         </div>
     );
 }
-
-TermsAndConditions;

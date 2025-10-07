@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const AboutUs = () => {
     // Base transition configuration for all animated elements
@@ -39,13 +40,18 @@ const AboutUs = () => {
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 items-center">
                         {/* Image Placeholder (Optional) */}
                         <motion.div
-                            className="hidden md:block rounded-xl shadow-2xl overflow-hidden"
+                            className="rounded-xl shadow-2xl overflow-hidden w-fit"
                             initial={initialProps}
                             animate={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
                             viewport={{ once: true, amount: 0.3 }}
                         >
-                            <img src="/assets/tablet-2.jpg" alt="" />
+                            <Image
+                                width={500}
+                                height={500}
+                                alt="Syntec Medi Pharma - Your Trusted Health Partner"
+                                src="/assets/tablet-2.avif"
+                            />
                         </motion.div>
 
                         {/* Text Content */}

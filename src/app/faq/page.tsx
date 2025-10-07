@@ -146,7 +146,7 @@ const FAQ: React.FC = () => {
                 <motion.div
                     className="text-center pb-8 border-b border-indigo-200"
                     initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                     viewport={viewportConfig}
                 >
@@ -175,7 +175,7 @@ const FAQ: React.FC = () => {
                 <motion.div
                     className="mt-12 text-center pt-8 border-t border-gray-300"
                     initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
+                    animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 1.4 }}
                     viewport={viewportConfig}
                 >
@@ -183,7 +183,7 @@ const FAQ: React.FC = () => {
                         Still Have Questions?
                     </h2>
                     <p className="text-lg text-gray-600">
-                        Don't hesitate to reach out to our team directly.
+                        Don&apos;t hesitate to reach out to our team directly.
                     </p>
                     <p className="text-base text-indigo-600 font-semibold mt-1">
                         Call us at 8929158671 or Email us at

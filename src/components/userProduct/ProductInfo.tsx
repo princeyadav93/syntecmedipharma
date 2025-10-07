@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Mail, Phone, Package, Tag, FileText } from 'lucide-react';
+import { Package, Tag, FileText } from 'lucide-react';
 import type { Product } from '@/store/useProductStore';
 
 interface ProductInfoProps {

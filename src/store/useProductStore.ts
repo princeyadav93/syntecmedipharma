@@ -44,7 +44,7 @@ type ProductStore = {
     clearError: () => void;
 };
 
-export const useProductStore = create<ProductStore>((set, get) => ({
+export const useProductStore = create<ProductStore>((set) => ({
     products: [],
     query: '',
     category: 'All',

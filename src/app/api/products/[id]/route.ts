@@ -12,8 +12,15 @@ export async function DELETE(
     try {
         await Product.findByIdAndDelete(id);
         return NextResponse.json({ message: 'Product deleted' });
-    } catch (err: any) {
-        return NextResponse.json({ error: err.message }, { status: 400 });
+    } catch (error) {
+        if (error instanceof Error) {
+            return NextResponse.json({ error: error.message }, { status: 400 });
+        }
+
+        return NextResponse.json(
+            { error: 'An unknown error occurred' },
+            { status: 400 }
+        );
     }
 }
 
@@ -36,7 +43,14 @@ export async function PATCH(
         await product.save({ validateBeforeSave: false });
 
         return NextResponse.json(product);
-    } catch (err: any) {
-        return NextResponse.json({ error: err.message }, { status: 400 });
+    } catch (error) {
+        if (error instanceof Error) {
+            return NextResponse.json({ error: error.message }, { status: 400 });
+        }
+
+        return NextResponse.json(
+            { error: 'An unknown error occurred' },
+            { status: 400 }
+        );
     }
 }

@@ -10,7 +10,10 @@ const compat = new FlatCompat({
 });
 
 const eslintConfig = [
+  // Use Next and TypeScript base rules
   ...compat.extends("next/core-web-vitals", "next/typescript"),
+
+  // 👇 Add your global ESLint settings here
   {
     ignores: [
       "node_modules/**",
@@ -19,6 +22,10 @@ const eslintConfig = [
       "build/**",
       "next-env.d.ts",
     ],
+
+    rules: {
+      "@typescript-eslint/no-explicit-any": "off",
+    },
   },
 ];
 

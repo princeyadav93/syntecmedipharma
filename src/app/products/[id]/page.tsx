@@ -2,30 +2,10 @@
 import { motion } from 'framer-motion';
 import { ProductGallery } from '@/components/userProduct/ProductGallery';
 import { ProductInfo } from '@/components/userProduct/ProductInfo';
-import type { Product } from '@/store/useProductStore';
 import { useProductStore } from '@/store/useProductStore';
 import { use } from 'react';
 
 // Mock product data - replace with your actual data source
-const mockProduct: Product = {
-    _id: 'PROD123456',
-    images: [
-        'https://images.unsplash.com/photo-1610348725531-843dff563e2c?w=800&h=800&fit=crop',
-        'https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=800&fit=crop',
-        'https://images.unsplash.com/photo-1587049352846-4a222e784acc?w=800&h=800&fit=crop',
-        'https://images.unsplash.com/photo-1572635196237-14b3f281503f?w=800&h=800&fit=crop',
-    ],
-    brandName: 'Premium Organic Quinoa',
-    composition: '100% Organic White Quinoa',
-    category: 'Grains & Seeds',
-    description:
-        'Experience the finest quality organic quinoa, carefully sourced from sustainable farms. Rich in protein, fiber, and essential nutrients, our quinoa is perfect for salads, bowls, and as a nutritious side dish. Gluten-free and naturally delicious.',
-    quantity: 500,
-    unit: 'g',
-    mrp: 450,
-    price: 349,
-    publish: true,
-};
 
 export default function ProductPage({
     params,

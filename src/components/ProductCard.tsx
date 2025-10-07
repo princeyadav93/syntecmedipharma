@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type Product = {
     _id: string;
@@ -36,7 +37,9 @@ export default function ProductCard({ product }: { product: Product }) {
                 <div className="max-w-sm w-full rounded-xl overflow-hidden shadow-md hover:shadow-lg transition transform hover:scale-[1.02] cursor-pointer bg-white">
                     {/* Product Image */}
                     <div className="h-44 w-full  flex items-center justify-center">
-                        <img
+                        <Image
+                            width={200}
+                            height={200}
                             src={product.images[0]}
                             alt={product.brandName}
                             className="w-full h-full object-contain"
