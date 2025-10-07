@@ -11,7 +11,7 @@ export default function Home() {
             <Hero
                 title="Trusted Wholesale Partner in Healthcare"
                 subtitle="Providing quality medicines at competitive prices to pharmacies, hospitals, and distributors."
-                image="/images/hero-image.jpg"
+                image="/images/hero-image1.jpg"
                 buttonLabel="Explore Products"
                 buttonLink="/#products"
             />

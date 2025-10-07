@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-        <footer className="bg-indigo-400 shadow-sm transition-colors">
+        <footer className="bg-[#0e8b8b] shadow-sm transition-colors">
             <div className="max-w-7xl mx-auto px-3 py-2 md:px-6 md:py-4 flex flex-col md:flex-row justify-between items-center md:items-start gap-2 md:gap-6">
                 {/* Logo + Copyright */}
                 <motion.div
@@ -40,7 +40,7 @@ export default function Footer() {
                     <li>
                         <Link
                             href="/faq"
-                            className="hover:text-theme text-white"
+                            className="hover:text-[#0B2137] text-white"
                         >
                             FAQ
                         </Link>
@@ -48,7 +48,7 @@ export default function Footer() {
                     <li>
                         <Link
                             href="/privacy-policy"
-                            className="hover:text-theme text-white"
+                            className="hover:text-[#0B2137] text-white"
                         >
                             Privacy Policy
                         </Link>
@@ -56,7 +56,7 @@ export default function Footer() {
                     <li>
                         <Link
                             href="/terms-and-conditions"
-                            className="hover:text-theme text-white"
+                            className="hover:text-[#0B2137] text-white"
                         >
                             Terms and Conditions
                         </Link>

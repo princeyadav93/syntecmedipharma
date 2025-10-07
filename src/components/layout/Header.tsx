@@ -17,7 +17,7 @@ export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-indigo-400 sticky top-0 z-50 navbar-bg shadow-sm transition-colors">
+        <nav className="bg-[#0e8b8b] sticky top-0 z-50 navbar-bg shadow-sm transition-colors">
             <div className="max-w-7xl mx-auto px-3 py-2 md:px-6 md:py-4 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/">
@@ -37,7 +37,7 @@ export default function NavBar() {
                             <li key={name} className="relative">
                                 <Link
                                     href={href}
-                                    className={`transition-colors text-white ${
+                                    className={`transition-colors text-white hover:text-[#0B2137]  ${
                                         isActive
                                             ? 'text-theme font-semibold'
                                             : ' hover:text-theme'
@@ -94,7 +94,7 @@ export default function NavBar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="md:hidden fixed inset-0 h-1/2 -z-10 bg-bg flex flex-col items-center justify-center space-y-8"
+                        className="md:hidden fixed inset-0 h-1/2 -z-10 bg-[#0e8b8b] flex flex-col items-center justify-center space-y-8 "
                     >
                         <ul className="flex flex-col items-center space-y-6 text-xl">
                             {navLinks.map(({ name, href }) => (
@@ -102,7 +102,7 @@ export default function NavBar() {
                                     <Link
                                         href={href}
                                         onClick={() => setMenuOpen(false)}
-                                        className="hover:text-theme transition-colors"
+                                        className="text-white hover:text-[#0B2137]"
                                     >
                                         {name}
                                     </Link>

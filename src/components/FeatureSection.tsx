@@ -38,20 +38,7 @@ export default function FeatureSection({
                             // 👇 on mobile → order-2 (image second), on md+ → order-1 (image first)
                             className="w-full flex justify-center md:justify-start order-2 md:order-1"
                         >
-                            <motion.div
-                                whileHover={{
-                                    rotateX: 5,
-                                    rotateY: -5,
-                                    scale: 1.03,
-                                }}
-                                whileTap={{ scale: 0.98 }}
-                                transition={{
-                                    type: 'spring',
-                                    stiffness: 200,
-                                    damping: 10,
-                                }}
-                                className="relative w-72 h-80 md:w-96 md:h-[500px] [perspective:1000px]"
-                            >
+                            <motion.div className="relative w-72 h-80 md:w-96 md:h-[500px] [perspective:1000px]">
                                 <Image
                                     src={image}
                                     alt={title}
@@ -108,20 +95,7 @@ export default function FeatureSection({
                             className="w-full flex justify-center md:justify-center order-2"
                         >
                             {/* Hover tilt effect */}
-                            <motion.div
-                                whileHover={{
-                                    rotateX: 5,
-                                    rotateY: 5,
-                                    scale: 1.03,
-                                }}
-                                whileTap={{ scale: 0.98 }}
-                                transition={{
-                                    type: 'spring',
-                                    stiffness: 200,
-                                    damping: 10,
-                                }}
-                                className="relative w-72 h-80 md:w-96 [perspective:1000px]"
-                            >
+                            <motion.div className="relative w-72 h-80 md:w-96 [perspective:1000px]">
                                 <Image
                                     src={image}
                                     alt={title}
@@ -148,20 +122,7 @@ export default function FeatureSection({
                         // 👇 on mobile → order-2 (image second), on md+ → order-1 (image first)
                         className="w-full flex justify-center md:justify-start order-2 md:order-1"
                     >
-                        <motion.div
-                            whileHover={{
-                                rotateX: 5,
-                                rotateY: -5,
-                                scale: 1.03,
-                            }}
-                            whileTap={{ scale: 0.98 }}
-                            transition={{
-                                type: 'spring',
-                                stiffness: 200,
-                                damping: 10,
-                            }}
-                            className="relative w-72 h-80 md:w-96 [perspective:1000px]"
-                        >
+                        <motion.div className="relative w-72 h-80 md:w-96 [perspective:1000px]">
                             <Image
                                 src={image}
                                 alt={title}
@@ -218,16 +179,7 @@ export default function FeatureSection({
                         className="w-full flex justify-center md:justify-center order-2"
                     >
                         {/* Hover tilt effect */}
-                        <motion.div
-                            whileHover={{ rotateX: 5, rotateY: 5, scale: 1.03 }}
-                            whileTap={{ scale: 0.98 }}
-                            transition={{
-                                type: 'spring',
-                                stiffness: 200,
-                                damping: 10,
-                            }}
-                            className="relative w-72 h-80 md:w-96 md:h-[500px] [perspective:1000px]"
-                        >
+                        <motion.div className="relative w-72 h-80 md:w-96 md:h-[500px] [perspective:1000px]">
                             <Image
                                 src={image}
                                 alt={title}
