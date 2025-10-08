@@ -67,7 +67,7 @@ export default function FeatureSection({
                             </p>
                         )}
 
-                        <h2 className="text-2xl md:text-3xl font-bold leading-snug">
+                        <h2 className="text-2xl md:text-3xl font-bold leading-snug text-theme-two">
                             {title}
                         </h2>
 
@@ -78,7 +78,7 @@ export default function FeatureSection({
                         {linkLabel && linkHref && (
                             <Link
                                 href={linkHref}
-                                className="inline-block text-theme hover:underline font-medium"
+                                className="inline-block text-theme hover:underline font-medium text-theme-hover"
                             >
                                 {linkLabel}
                             </Link>
@@ -95,13 +95,13 @@ export default function FeatureSection({
                             className="w-full flex justify-center md:justify-center order-2"
                         >
                             {/* Hover tilt effect */}
-                            <motion.div className="relative w-72 h-80 md:w-96 [perspective:1000px]">
+                            <motion.div className="relative w-72 h-80 md:w-96">
                                 <Image
                                     src={image}
                                     alt={title}
                                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                     fill
-                                    className="object-fill lg:ml-6"
+                                    className=" object-cover md:object-fill lg:ml-6"
                                 />
                             </motion.div>
                         </motion.div>
@@ -128,7 +128,7 @@ export default function FeatureSection({
                                 alt={title}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 fill
-                                className="object-fill"
+                                className="object-cover md:object-fill"
                             />
                         </motion.div>
                     </motion.div>
@@ -151,7 +151,7 @@ export default function FeatureSection({
                         </p>
                     )}
 
-                    <h2 className="text-2xl md:text-3xl font-bold leading-snug">
+                    <h2 className="text-2xl md:text-3xl font-bold leading-snug text-theme-two">
                         {title}
                     </h2>
 
@@ -162,7 +162,7 @@ export default function FeatureSection({
                     {linkLabel && linkHref && (
                         <Link
                             href={linkHref}
-                            className="inline-block text-theme hover:underline font-medium"
+                            className="inline-block text-theme hover:underline font-medium text-theme-hover"
                         >
                             {linkLabel}
                         </Link>
@@ -185,7 +185,7 @@ export default function FeatureSection({
                                 alt={title}
                                 sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                                 fill
-                                className="object-contain lg:ml-6"
+                                className="object-fill lg:ml-6"
                             />
                         </motion.div>
                     </motion.div>

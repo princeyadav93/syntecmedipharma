@@ -42,9 +42,9 @@ export default function FeatureCard({
 
             {/* Content */}
             <div className="p-4">
-                <h3 className="text-lg md:text-xl font-semibold  flex items-center">
+                <h3 className="text-lg md:text-xl font-semibold  flex items-center text-theme-two">
                     {title}
-                    <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1">
+                    <span className="ml-1 transition-transform duration-300 group-hover:translate-x-1 text-theme-two">
                         →
                     </span>
                 </h3>

@@ -46,14 +46,14 @@ const AccordionItem: React.FC<AccordionItemProps> = ({
             >
                 <span
                     className={`text-lg font-semibold ${
-                        isOpen ? 'text-indigo-600' : 'text-gray-800'
+                        isOpen ? 'text-theme-two' : 'text-gray-800'
                     }`}
                 >
                     {title}
                 </span>
                 <svg
                     className={`w-6 h-6 transform transition-transform duration-300 ${
-                        isOpen ? 'rotate-180 text-indigo-500' : 'text-gray-400'
+                        isOpen ? 'rotate-180 text-theme-two' : 'text-gray-400'
                     }`}
                     fill="none"
                     stroke="currentColor"
@@ -144,13 +144,13 @@ const FAQ: React.FC = () => {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <motion.div
-                    className="text-center pb-8 border-b border-indigo-200"
+                    className="text-center pb-8 border-b border-theme"
                     initial={{ opacity: 0, y: 30 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
                     viewport={viewportConfig}
                 >
-                    <h1 className="text-4xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                    <h1 className="text-4xl leading-tight font-extrabold tracking-tight text-theme-two sm:text-5xl">
                         Frequently Asked Questions
                     </h1>
                     <p className="mt-2 text-lg text-gray-500">
@@ -185,7 +185,7 @@ const FAQ: React.FC = () => {
                     <p className="text-lg text-gray-600">
                         Don&apos;t hesitate to reach out to our team directly.
                     </p>
-                    <p className="text-base text-indigo-600 font-semibold mt-1">
+                    <p className="text-base text-theme-two font-semibold mt-1">
                         Call us at 8929158671 or Email us at
                         syntecmedipharma@gmail.com
                     </p>

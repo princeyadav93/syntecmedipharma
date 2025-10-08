@@ -35,7 +35,7 @@ export default function GridCard() {
                 >
                     OUR PRODUCT RANGE
                 </p>
-                <h2 className="text-2xl md:text-3xl font-bold mt-2 mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold mt-2 mb-8 text-theme-two">
                     Quality Medicines Across Every Category
                 </h2>
 

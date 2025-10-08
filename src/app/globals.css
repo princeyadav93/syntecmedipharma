@@ -16,6 +16,7 @@
   --color-primary-hover: #243d61;
   /* green-700 */
   --color-secondary: #4b5563;
+  --color-primary-two: #0e8b8b;
   /* gray-600 */
   --color-border: #e5e7eb;
   /* gray-200 */
@@ -109,8 +110,16 @@
     color: var(--color-primary);
   }
 
+  .text-theme-two {
+    color: var(--color-primary-two);
+  }
+
+  .text-theme-hover:hover {
+    color: var(--color-primary-two);
+  }
+
   .bg-theme {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-two);
   }
 
   .bg-theme-hover:hover {
@@ -118,7 +127,7 @@
   }
 
   .border-theme {
-    border-color: var(--color-primary);
+    border-color: var(--color-primary-two);
   }
 
   /* Buttons */
@@ -210,11 +219,11 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #0B2137;
+  background-color: var(--color-primary-two);
   border-radius: 10px;
   border: 2px solid #f3f3f0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: #0B2137;
+  background-color: var(--color-primary-two);
 }

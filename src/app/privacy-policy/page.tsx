@@ -67,13 +67,13 @@ export default function PrivacyPolicy() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
                 {/* Header Section */}
                 <motion.div
-                    className="text-center pb-8 border-b border-indigo-200"
+                    className="text-center pb-8 border-b border-theme"
                     initial={initialProps}
                     animate={whileInViewProps}
                     transition={{ ...staggerTransition, delay: 0.1 }}
                     viewport={viewportConfig}
                 >
-                    <h1 className="text-4xl leading-tight font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                    <h1 className="text-4xl leading-tight font-extrabold tracking-tight text-theme-two sm:text-5xl">
                         Privacy Policy
                     </h1>
                     <p className="mt-2 text-lg text-gray-500">
@@ -90,7 +90,7 @@ export default function PrivacyPolicy() {
                     {policySections.map((section, index) => (
                         <motion.div
                             key={index}
-                            className="p-6 bg-white rounded-xl shadow-lg border-l-4 border-indigo-500"
+                            className="p-6 bg-white rounded-xl shadow-lg border-l-4 border-theme"
                             initial={initialProps}
                             animate={whileInViewProps}
                             transition={{
@@ -98,7 +98,7 @@ export default function PrivacyPolicy() {
                             }}
                             viewport={viewportConfig}
                         >
-                            <h2 className="text-xl font-bold text-gray-900 mb-3">
+                            <h2 className="text-xl font-bold text-theme-two mb-3">
                                 {section.title}
                             </h2>
                             <div className="space-y-3 text-gray-600">
@@ -124,7 +124,7 @@ export default function PrivacyPolicy() {
                     transition={{ ...staggerTransition, delay: 0.2 }}
                     viewport={viewportConfig}
                 >
-                    <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                    <h2 className="text-2xl font-bold text-theme-two mb-4">
                         6. Contact Us
                     </h2>
                     <p className="text-lg text-gray-600 mb-6">
@@ -133,27 +133,27 @@ export default function PrivacyPolicy() {
                         information below:
                     </p>
                     <div className="bg-white p-6 rounded-xl shadow-md space-y-3">
-                        <p className="text-base text-gray-900">
-                            <span className="font-semibold text-indigo-700">
+                        <p className="text-base ">
+                            <span className="font-semibold text-theme-two">
                                 Email:
                             </span>
                             <a
                                 href="mailto:syntecmedipharma@gmail.com"
-                                className="ml-2 hover:text-indigo-600"
+                                className="ml-2 text-theme-hover"
                             >
                                 syntecmedipharma@gmail.com
                             </a>
                         </p>
-                        <p className="text-base text-gray-900">
-                            <span className="font-semibold text-indigo-700">
+                        <p className="text-base">
+                            <span className="font-semibold text-theme-two">
                                 Phone:
                             </span>
                             <span className="ml-2">
                                 8929158671 / 9211599689
                             </span>
                         </p>
-                        <p className="text-base text-gray-900">
-                            <span className="font-semibold text-indigo-700">
+                        <p className="text-base ">
+                            <span className="font-semibold text-theme-two">
                                 Corporate Office:
                             </span>
                             <span className="ml-2">

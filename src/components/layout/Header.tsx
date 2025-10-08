@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import Image from 'next/image';
 
 const navLinks = [
     { name: 'Home', href: '/' },
@@ -17,14 +18,16 @@ export default function NavBar() {
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <nav className="bg-[#0e8b8b] sticky top-0 z-50 navbar-bg shadow-sm transition-colors">
+        <nav className="bg-theme sticky top-0 z-50 navbar-bg shadow-sm transition-colors">
             <div className="max-w-7xl mx-auto px-3 py-2 md:px-6 md:py-4 flex justify-between items-center">
                 {/* Logo */}
                 <Link href="/">
-                    <img
-                        alt="logo"
+                    <Image
+                        alt="syntec-medi-pharma logo"
                         src="/images/nav-logo.svg"
+                        height={70}
                         width={110}
+                        priority
                         className=" object-contain w-[70px] md:w-[110px] lg:ml-6 fill-transparent"
                     />
                 </Link>
@@ -37,7 +40,7 @@ export default function NavBar() {
                             <li key={name} className="relative">
                                 <Link
                                     href={href}
-                                    className={`transition-colors text-white hover:text-[#0B2137]  ${
+                                    className={`transition-colors text-white hover:text-[#0B2137] ${
                                         isActive
                                             ? 'text-theme font-semibold'
                                             : ' hover:text-theme'
@@ -48,7 +51,7 @@ export default function NavBar() {
                                 {isActive && (
                                     <motion.div
                                         layoutId="underline"
-                                        className="absolute left-0 -bottom-1 w-full h-[2px] bg-theme"
+                                        className="absolute left-0 -bottom-1 w-full h-[2px] bg-[#0B2137]"
                                         transition={{
                                             type: 'spring',
                                             stiffness: 300,
@@ -94,7 +97,7 @@ export default function NavBar() {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -20 }}
                         transition={{ duration: 0.2 }}
-                        className="md:hidden fixed inset-0 h-1/2 -z-10 bg-[#0e8b8b] flex flex-col items-center justify-center space-y-8 "
+                        className="md:hidden fixed inset-0 h-1/2 -z-10 bg-theme flex flex-col items-center justify-center space-y-8 "
                     >
                         <ul className="flex flex-col items-center space-y-6 text-xl">
                             {navLinks.map(({ name, href }) => (

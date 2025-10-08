@@ -2,10 +2,11 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import Image from 'next/image';
 
 export default function Footer() {
     return (
-        <footer className="bg-[#0e8b8b] shadow-sm transition-colors">
+        <footer className="bg-theme shadow-sm transition-colors">
             <div className="max-w-7xl mx-auto px-3 py-2 md:px-6 md:py-4 flex flex-col md:flex-row justify-between items-center md:items-start gap-2 md:gap-6">
                 {/* Logo + Copyright */}
                 <motion.div
@@ -16,10 +17,12 @@ export default function Footer() {
                     className="text-center md:text-left"
                 >
                     <Link href="/">
-                        <img
-                            alt="logo"
+                        <Image
+                            alt="syntec-medi-pharma logo"
                             src="/images/nav-logo.svg"
                             width={110}
+                            height={70}
+                            priority
                             className=" object-contain lg:ml-6 fill-transparent"
                         />
                     </Link>

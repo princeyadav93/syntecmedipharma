@@ -4,9 +4,6 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const AboutUs = () => {
-    // Base transition configuration for all animated elements
-    // FIX: Removed 'type: "tween"' to resolve TypeScript compatibility error,
-    // as 'tween' is the default type when 'duration' is provided.
     const staggerTransition = { duration: 0.3 };
 
     // Initial hidden state for fade-in-up animation
@@ -27,10 +24,10 @@ const AboutUs = () => {
                     transition={{ ...staggerTransition, delay: 0.1 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <p className="text-base font-semibold text-indigo-600 tracking-wide uppercase">
+                    <p className="text-base font-semibold text-theme tracking-wide uppercase">
                         Our Mission & Commitment
                     </p>
-                    <h1 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-5xl">
+                    <h1 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-theme-two sm:text-5xl">
                         Syntec Medi Pharma: Your Trusted Health Partner
                     </h1>
                 </motion.div>
@@ -57,7 +54,7 @@ const AboutUs = () => {
                         {/* Text Content */}
                         <div className="space-y-6">
                             <motion.h2
-                                className="text-2xl font-bold text-gray-900"
+                                className="text-2xl font-bold text-theme"
                                 initial={initialProps}
                                 animate={whileInViewProps}
                                 transition={{
@@ -88,7 +85,7 @@ const AboutUs = () => {
                             </motion.p>
 
                             <motion.p
-                                className="text-lg text-gray-600 font-medium border-l-4 border-indigo-500 pl-4 py-1 rounded-sm shadow-sm"
+                                className="text-lg text-gray-600 font-medium border-l-4 border-theme pl-4 py-1 rounded-sm shadow-sm"
                                 initial={initialProps}
                                 animate={whileInViewProps}
                                 transition={{
@@ -115,7 +112,7 @@ const AboutUs = () => {
                         transition={{ ...staggerTransition, delay: 0.2 }}
                         viewport={{ once: true, amount: 0.3 }}
                     >
-                        <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
+                        <h2 className="text-3xl font-extrabold text-theme-two sm:text-4xl">
                             Your Reliable Pharmaceutical Wholesale Distributor
                         </h2>
                         <p className="mt-4 text-xl text-gray-500">
@@ -128,14 +125,14 @@ const AboutUs = () => {
                     <dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-3 md:gap-x-8 md:gap-y-10">
                         {/* Pillar 1: Reliable Supply */}
                         <motion.div
-                            className="relative bg-white border-t-4 border-indigo-500 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+                            className="relative bg-white border-t-4 border-theme p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
                             initial={initialProps}
                             whileInView={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
                             viewport={{ once: true, amount: 0.3 }}
                         >
                             <dt>
-                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-full bg-indigo-500 text-white shadow-lg">
+                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-full bg-theme text-white shadow-lg">
                                     <svg
                                         className="h-6 w-6"
                                         fill="none"
@@ -150,7 +147,7 @@ const AboutUs = () => {
                                         />
                                     </svg>
                                 </div>
-                                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
+                                <p className="ml-16 text-lg leading-6 font-medium text-theme">
                                     Consistent Stock Guarantee
                                 </p>
                             </dt>
@@ -163,14 +160,14 @@ const AboutUs = () => {
 
                         {/* Pillar 2: Quality Assurance */}
                         <motion.div
-                            className="relative bg-white border-t-4 border-indigo-500 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+                            className="relative bg-white border-t-4 border-theme p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
                             initial={initialProps}
                             whileInView={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
                             viewport={{ once: true, amount: 0.3 }}
                         >
                             <dt>
-                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-full bg-indigo-500 text-white shadow-lg">
+                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-full bg-theme text-white shadow-lg">
                                     <svg
                                         className="h-6 w-6"
                                         fill="none"
@@ -185,7 +182,7 @@ const AboutUs = () => {
                                         />
                                     </svg>
                                 </div>
-                                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
+                                <p className="ml-16 text-lg leading-6 font-medium text-theme">
                                     Quality Assurance
                                 </p>
                             </dt>
@@ -198,14 +195,14 @@ const AboutUs = () => {
 
                         {/* Pillar 3: Timely Delivery */}
                         <motion.div
-                            className="relative bg-white border-t-4 border-indigo-500 p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
+                            className="relative bg-white border-t-4 border-theme p-6 rounded-lg shadow-md hover:shadow-xl transition duration-300"
                             initial={initialProps}
                             whileInView={whileInViewProps}
                             transition={{ ...staggerTransition, delay: 0.2 }}
                             viewport={{ once: true, amount: 0.3 }}
                         >
                             <dt>
-                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-full bg-indigo-500 text-white shadow-lg">
+                                <div className="absolute flex items-center justify-center h-12 w-12 rounded-full bg-theme text-white shadow-lg">
                                     <svg
                                         className="h-6 w-6"
                                         fill="none"
@@ -220,7 +217,7 @@ const AboutUs = () => {
                                         />
                                     </svg>
                                 </div>
-                                <p className="ml-16 text-lg leading-6 font-medium text-gray-900">
+                                <p className="ml-16 text-lg leading-6 font-medium text-theme">
                                     Dependable Partnership
                                 </p>
                             </dt>
@@ -235,53 +232,53 @@ const AboutUs = () => {
 
                 {/* Contact/Corporate Info Section */}
                 <motion.div
-                    className="mt-20 pt-10 bg-white rounded-xl shadow-md p-6 sm:p-10 border-t-4 border-indigo-500"
+                    className="mt-20 pt-10 bg-white rounded-xl shadow-md p-6 sm:p-10 border-t-4 border-theme"
                     initial={initialProps}
                     whileInView={whileInViewProps}
                     transition={{ ...staggerTransition, delay: 0.2 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-2xl font-bold text-gray-900 mb-6">
+                    <h2 className="text-2xl font-bold text-theme mb-6">
                         Connect with Syntec Medi Pharma
                     </h2>
                     <dl className="grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-2 lg:grid-cols-3">
                         <div>
-                            <dt className="text-sm font-semibold text-indigo-700">
+                            <dt className="text-sm font-semibold text-theme-two">
                                 Corporate Office
                             </dt>
-                            <dd className="mt-1 text-base text-gray-900">
+                            <dd className="mt-1 text-base text-theme">
                                 Shop No. 4 Sumer Complex, Nawada, Naharpur Road,
                                 <br />
                                 Gurugram, Haryana 122001
                             </dd>
                         </div>
                         <div>
-                            <dt className="text-sm font-semibold text-indigo-700">
+                            <dt className="text-sm font-semibold text-theme-two">
                                 Contact Numbers
                             </dt>
-                            <dd className="mt-1 text-base text-gray-900 space-y-1">
+                            <dd className="mt-1 text-base text-theme space-y-1">
                                 <a
                                     href="tel:8929158671"
-                                    className="hover:text-indigo-600 transition block"
+                                    className="text-theme-hover transition block"
                                 >
                                     📞 8929158671
                                 </a>
                                 <a
                                     href="tel:9211599689"
-                                    className="hover:text-indigo-600 transition block"
+                                    className="text-theme-hover transition block"
                                 >
                                     📞 9211599689
                                 </a>
                             </dd>
                         </div>
                         <div>
-                            <dt className="text-sm font-semibold text-indigo-700">
+                            <dt className="text-sm font-semibold text-theme-two">
                                 Email Address
                             </dt>
-                            <dd className="mt-1 text-base text-gray-900">
+                            <dd className="mt-1 text-base text-theme">
                                 <a
                                     href="mailto:syntecmedipharma@gmail.com"
-                                    className="hover:text-indigo-600 transition"
+                                    className="text-theme-hover transition"
                                 >
                                     📧 syntecmedipharma@gmail.com
                                 </a>

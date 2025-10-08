@@ -108,7 +108,7 @@ export default function ContactForm() {
                         >
                             Get in Touch
                         </p>
-                        <h2 className="text-xl md:text-2xl font-bold text-text mb-4">
+                        <h2 className="text-xl md:text-2xl font-bold text-text mb-4 text-theme-two">
                             We&apos;re here to assist you!
                         </h2>
 
@@ -254,7 +254,7 @@ export default function ContactForm() {
                         <Mail className="w-5 h-5" />
                         <a
                             href="mailto:syntecmedipharma@gmail.com"
-                            className="hover:underline"
+                            className="hover:underline text-theme-hover"
                         >
                             syntecmedipharma@gmail.com
                         </a>
