@@ -1,3 +1,4 @@
+import type { Metadata } from 'next';
 import ContactForm from '@/components/ContactForm';
 import FeatureSection from '@/components/FeatureSection';
 import GridCard from '@/components/GridCard';
