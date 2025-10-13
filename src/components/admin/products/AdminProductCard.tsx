@@ -62,9 +62,6 @@ export default function AdminProductCard({
                                     <span className="text-sm line-through text-gray-400">
                                         ₹{product.mrp}
                                     </span>
-                                    <span className="font-semibold text-green-600">
-                                        ₹{product.price}
-                                    </span>
                                 </div>
                                 <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-md">
                                     {product.quantity} {product.unit}
@@ -157,9 +154,6 @@ export default function AdminProductCard({
                         <div className="flex items-center space-x-2">
                             <span className="text-sm line-through text-gray-400">
                                 ₹{product.mrp}
-                            </span>
-                            <span className="font-semibold text-green-600">
-                                ₹{product.price}
                             </span>
                         </div>
                         <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-md">

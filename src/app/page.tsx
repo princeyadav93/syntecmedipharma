@@ -1,7 +1,14 @@
+import type { Metadata } from 'next';
 import ContactForm from '@/components/ContactForm';
 import FeatureSection from '@/components/FeatureSection';
 import GridCard from '@/components/GridCard';
 import Hero from '@/components/Hero';
+
+export const metadata: Metadata = {
+    title: 'Syntec Medipharma',
+    description:
+        'Licensed B2B pharma wholesaler supplying authentic allopathic medicines to chemists and clinics—batch‑verified stock, competitive bulk pricing, and fast nationwide delivery.',
+};
 
 export default function Home() {
     return (

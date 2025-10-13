@@ -19,7 +19,7 @@ export interface ProductFormValues {
     category: string;
     description: string;
     mrp: string; // stored as string
-    price: string; // stored as string
+
     quantity: string; // stored as string
     unit: QuantityUnit;
     publish: boolean;
@@ -32,7 +32,6 @@ export default function AddProductForm() {
         composition: '',
         description: '',
         mrp: '',
-        price: '',
         quantity: '',
         category: '',
         unit: QuantityUnit.PACKET,
@@ -111,7 +110,6 @@ export default function AddProductForm() {
                 ...form,
                 images: uploadedUrls,
                 mrp: Number(form.mrp), // convert here
-                price: Number(form.price),
                 quantity: Number(form.quantity),
             };
 
@@ -134,7 +132,6 @@ export default function AddProductForm() {
                 category: '',
                 description: '',
                 mrp: '',
-                price: '',
                 quantity: '',
                 unit: QuantityUnit.PACKET,
                 publish: false,
@@ -377,33 +374,6 @@ export default function AddProductForm() {
                                             placeholder="0"
                                             required
                                             value={form.mrp}
-                                            onChange={(e) => {
-                                                const value = e.target.value;
-                                                if (/^\d{0,6}$/.test(value)) {
-                                                    handleChange(e);
-                                                }
-                                            }}
-                                            className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-gray-700">
-                                        Selling Price (₹)
-                                    </label>
-                                    <div className="relative">
-                                        <span className="absolute left-3 top-3 text-gray-500">
-                                            ₹
-                                        </span>
-                                        <input
-                                            type="text"
-                                            inputMode="numeric"
-                                            pattern="[0-9]*"
-                                            name="price"
-                                            placeholder="0"
-                                            required
-                                            value={form.price}
                                             onChange={(e) => {
                                                 const value = e.target.value;
                                                 if (/^\d{0,6}$/.test(value)) {

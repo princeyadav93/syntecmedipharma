@@ -220,7 +220,10 @@ export default function ContactForm() {
                         {message && <p className="mt-3 text-sm">{message}</p>}
                     </motion.div>
                 ) : (
-                    <div className="flex items-center justify-center">
+                    <div
+                        className="flex items-center justify-center"
+                        id="contact"
+                    >
                         <motion.div
                             initial={{ scale: 0.95, opacity: 0 }}
                             animate={{ scale: 1, opacity: 1 }}
@@ -228,12 +231,12 @@ export default function ContactForm() {
                             transition={{ duration: 0.25 }} // 🔥 nice zoom-out effect
                             className="bg-bg"
                         >
-                            <h2 className="text-2xl text-center font-bold">
+                            <h2 className="text-2xl text-center font-bold text-theme-two">
                                 Thank you!
                             </h2>
-                            <p className="mt-3">
-                                We&apos;ve received your details and our
-                                Ayurveda team will contact you shortly.
+                            <p className="mt-3 text-center">
+                                We&apos;ve received your details and our Syntec
+                                Medi Pharma team will contact you shortly.
                             </p>
                         </motion.div>
                     </div>

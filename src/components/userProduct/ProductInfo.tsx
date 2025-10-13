@@ -7,10 +7,6 @@ interface ProductInfoProps {
 }
 
 export const ProductInfo = ({ product }: ProductInfoProps) => {
-    const discount = Math.round(
-        ((product.mrp - product.price) / product.mrp) * 100
-    );
-
     return (
         <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -75,17 +71,9 @@ export const ProductInfo = ({ product }: ProductInfoProps) => {
             {/* Pricing Info */}
             <div className="space-y-2">
                 <div className="flex items-baseline gap-3">
-                    <span className="text-4xl font-bold text-brand">
-                        ₹{product.price}
-                    </span>
                     <span className="text-xl text-muted-foreground line-through">
                         ₹{product.mrp}
                     </span>
-                    {discount > 0 && (
-                        <span className="inline-flex items-center rounded-md px-2.5 py-0.5 text-sm font-semibold bg-destructive text-destructive-foreground">
-                            {discount}% OFF
-                        </span>
-                    )}
                 </div>
                 <p className="text-sm text-muted-foreground">
                     Bulk pricing available - Contact for details

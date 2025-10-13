@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 export enum QuantityUnit {
     PACKET = 'packet',
@@ -11,7 +11,6 @@ export interface IProduct {
     composition: string;
     description?: string;
     mrp: number;
-    price: number;
     quantity: number;
     unit: QuantityUnit;
     publish: boolean;
@@ -25,7 +24,6 @@ const ProductSchema = new Schema<IProduct>(
         composition: { type: String, required: true },
         description: { type: String },
         mrp: { type: Number, required: true },
-        price: { type: Number, required: true },
         quantity: { type: Number, required: true },
         unit: {
             type: String,
@@ -38,8 +36,12 @@ const ProductSchema = new Schema<IProduct>(
     { timestamps: true }
 );
 
-const Product =
-    (models.Product as mongoose.Model<IProduct>) ||
-    model<IProduct>('Product', ProductSchema);
+let Product: mongoose.Model<IProduct>;
+
+try {
+    Product = mongoose.model<IProduct>('Product');
+} catch {
+    Product = mongoose.model<IProduct>('Product', ProductSchema);
+}
 
 export { Product };

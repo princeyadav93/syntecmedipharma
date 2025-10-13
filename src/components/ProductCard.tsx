@@ -14,7 +14,6 @@ type Product = {
     quantity: number;
     unit: string;
     mrp: number;
-    price: number;
     publish: boolean;
 };
 

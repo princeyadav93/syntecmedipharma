@@ -176,7 +176,7 @@ export default function EditProductModal({
                         </div>
                     </div>
 
-                    {/* --- MRP & Price --- */}
+                    {/* --- MRP */}
                     <div className="grid grid-cols-2 gap-4">
                         <div>
                             <label className="block text-sm font-semibold mb-2">
@@ -190,24 +190,6 @@ export default function EditProductModal({
                                 onChange={(e) =>
                                     handleChange(
                                         'mrp',
-                                        parseFloat(e.target.value)
-                                    )
-                                }
-                                className="w-full px-4 py-2 border rounded-xl focus:ring-blue-500"
-                            />
-                        </div>
-                        <div>
-                            <label className="block text-sm font-semibold mb-2">
-                                Price (₹) *
-                            </label>
-                            <input
-                                type="number"
-                                min="0"
-                                step="0.01"
-                                value={formData.price}
-                                onChange={(e) =>
-                                    handleChange(
-                                        'price',
                                         parseFloat(e.target.value)
                                     )
                                 }

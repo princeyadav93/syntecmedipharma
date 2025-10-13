@@ -9,7 +9,6 @@ type Product = {
     quantity: number;
     image: string;
     mrp: number;
-    price: number;
     type: 'Syrups' | 'Ayurvedic Syrups' | 'Dry Syrups';
     publish: boolean;
 };
@@ -43,9 +42,6 @@ export default function AdminProductCard({
                 <span className="line-through text-gray-500">
                     ₹{product.mrp}
                 </span>{' '}
-                <span className="font-semibold text-green-600">
-                    ₹{product.price}
-                </span>
             </p>
             <p className="text-sm text-gray-500">
                 {product.quantity} {product.unit}
