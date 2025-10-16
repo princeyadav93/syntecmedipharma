@@ -1,5 +1,5 @@
 'use client';
-import { QuantityUnit } from '@/models/products';
+import { QuantityUnit, ProductCategory } from '@/models/products';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -19,7 +19,6 @@ export interface ProductFormValues {
     category: string;
     description: string;
     mrp: string; // stored as string
-
     quantity: string; // stored as string
     unit: QuantityUnit;
     publish: boolean;
@@ -33,7 +32,7 @@ export default function AddProductForm() {
         description: '',
         mrp: '',
         quantity: '',
-        category: '',
+        category: ProductCategory.HGC,
         unit: QuantityUnit.PACKET,
         publish: false,
     });
@@ -84,8 +83,9 @@ export default function AddProductForm() {
         setUploading(true);
 
         try {
-            // 1) Upload all files
-            const uploadedUrls: string[] = [];
+            // 1️⃣ Upload all files
+            const uploadedImages: { url: string; public_id: string }[] = [];
+
             for (const files of fileInputs) {
                 if (files.length === 0) continue;
 
@@ -98,22 +98,22 @@ export default function AddProductForm() {
                 });
 
                 if (!res.ok) throw new Error('Upload failed');
-
                 const data = await res.json();
-                if (data?.urls) {
-                    uploadedUrls.push(...data.urls);
+
+                if (data?.images) {
+                    uploadedImages.push(...data.images);
                 }
             }
 
-            // 2) Prepare final product data (convert string -> number)
+            // 2️⃣ Prepare final product data
             const productData = {
                 ...form,
-                images: uploadedUrls,
-                mrp: Number(form.mrp), // convert here
+                images: uploadedImages, // full objects (not just URLs)
+                mrp: Number(form.mrp),
                 quantity: Number(form.quantity),
             };
 
-            // 3) Save product
+            // 3️⃣ Save product
             const res = await fetch('/api/products', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -121,7 +121,6 @@ export default function AddProductForm() {
             });
 
             if (!res.ok) throw new Error('Failed to save product');
-
             alert('✅ Product created successfully!');
 
             // Reset
@@ -159,7 +158,7 @@ export default function AddProductForm() {
                         initial={{ opacity: 0, scale: 0.9 }}
                         animate={{ opacity: 1, scale: 1 }}
                         transition={{ delay: 0.1, duration: 0.5 }}
-                        className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full "
+                        className="inline-flex items-center justify-center w-16 h-16 bg-theme rounded-full "
                     >
                         <Plus className="w-8 h-8 text-white" />
                     </motion.div>
@@ -202,7 +201,7 @@ export default function AddProductForm() {
                                         transition={{ delay: index * 0.1 }}
                                         className="relative group"
                                     >
-                                        <div className="relative border-2 border-dashed border-gray-300 rounded-xl p-6 hover:border-blue-400 transition-colors duration-200 bg-gray-50 hover:bg-blue-50">
+                                        <div className="relative border-2 border-dashed border-gray-300 rounded-xl p-6 hover:border-[#0e8b8b] transition-colors duration-200 bg-gray-50 hover:bg-blue-50">
                                             <input
                                                 type="file"
                                                 multiple
@@ -251,7 +250,7 @@ export default function AddProductForm() {
                                 <button
                                     type="button"
                                     onClick={addFileInput}
-                                    className="flex items-center justify-center gap-2 w-full py-3 px-4 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 hover:border-blue-400 transition-colors duration-200 cursor-pointer"
+                                    className="flex items-center justify-center gap-2 w-full py-3 px-4 border border-gray-300 rounded-xl text-gray-700 hover:bg-gray-50 hover:border-[#0e8b8b] transition-colors duration-200 cursor-pointer"
                                 >
                                     <Plus className="w-4 h-4" />
                                     Add More Images
@@ -289,7 +288,7 @@ export default function AddProductForm() {
                                         required
                                         value={form.brandName}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
                                     />
                                 </div>
 
@@ -304,22 +303,48 @@ export default function AddProductForm() {
                                         required
                                         value={form.composition}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
                                     />
                                 </div>
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700">
                                         Category
                                     </label>
-                                    <input
-                                        type="text"
+                                    <select
                                         name="category"
-                                        placeholder="Product Category"
-                                        required
                                         value={form.category}
                                         onChange={handleChange}
-                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
-                                    />
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 bg-white cursor-pointer"
+                                    >
+                                        <option value={ProductCategory.HGC}>
+                                            Hard Gelatin Capsules
+                                        </option>
+                                        <option value={ProductCategory.Syrups}>
+                                            Syrups - Drug & Food
+                                        </option>
+                                        <option
+                                            value={ProductCategory.Injections}
+                                        >
+                                            Injections
+                                        </option>
+                                        <option value={ProductCategory.Creams}>
+                                            Creams
+                                        </option>
+                                        <option value={ProductCategory.Sachets}>
+                                            Sachets
+                                        </option>
+                                        <option value={ProductCategory.Soaps}>
+                                            Soaps
+                                        </option>
+                                        <option value={ProductCategory.Gels}>
+                                            Gels
+                                        </option>
+                                        <option
+                                            value={ProductCategory.Mouthwash}
+                                        >
+                                            Mouthwash
+                                        </option>
+                                    </select>
                                 </div>
                             </div>
 
@@ -334,7 +359,7 @@ export default function AddProductForm() {
                                     required
                                     onChange={handleChange}
                                     rows={4}
-                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 resize-none outline-0"
+                                    className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 placeholder-gray-400 resize-none outline-0"
                                 />
                             </div>
                         </div>
@@ -380,7 +405,7 @@ export default function AddProductForm() {
                                                     handleChange(e);
                                                 }
                                             }}
-                                            className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
+                                            className="w-full pl-8 pr-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
                                         />
                                     </div>
                                 </div>
@@ -404,13 +429,13 @@ export default function AddProductForm() {
                                                     handleChange(e);
                                                 }
                                             }}
-                                            className="w-full flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
+                                            className="w-full flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
                                         />
                                         <select
                                             name="unit"
                                             value={form.unit}
                                             onChange={handleChange}
-                                            className="px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 bg-white cursor-pointer"
+                                            className="px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 bg-white cursor-pointer"
                                         >
                                             <option value={QuantityUnit.PACKET}>
                                                 Packet
@@ -429,9 +454,9 @@ export default function AddProductForm() {
                             <motion.button
                                 type="submit"
                                 disabled={uploading}
-                                whileHover={{ scale: 1.02 }}
+                                whileHover={{ scale: 1.01 }}
                                 whileTap={{ scale: 0.98 }}
-                                className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-4 px-8 rounded-xl font-semibold shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-3 cursor-pointer"
+                                className="w-full bg-gradient-to-r bg-theme text-white py-4 px-8 rounded-xl font-semibold shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-200 flex items-center justify-center gap-3 cursor-pointer"
                             >
                                 {uploading ? (
                                     <>

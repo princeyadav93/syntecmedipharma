@@ -4,6 +4,16 @@ export enum QuantityUnit {
     PACKET = 'packet',
     ML = 'ml',
 }
+export enum ProductCategory {
+    HGC = 'hard gelatin capsules',
+    Syrups = 'syrups',
+    Injections = 'injections',
+    Creams = 'creams',
+    Sachets = 'sachets',
+    Soaps = 'soaps',
+    Gels = 'gels',
+    Mouthwash = 'mouthwash',
+}
 
 export interface IProduct {
     images: string[];
@@ -31,7 +41,11 @@ const ProductSchema = new Schema<IProduct>(
             required: true,
         },
         publish: { type: Boolean, default: false },
-        category: { type: String, required: true },
+        category: {
+            type: String,
+            enum: Object.values(ProductCategory),
+            required: true,
+        },
     },
     { timestamps: true }
 );

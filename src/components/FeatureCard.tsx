@@ -48,7 +48,9 @@ export default function FeatureCard({
                         →
                     </span>
                 </h3>
-                <p className="mt-2 text-sm md:text-base">{description}</p>
+                <p className="mt-2 text-sm md:text-base line-clamp-4">
+                    {description}
+                </p>
             </div>
         </Link>
     );

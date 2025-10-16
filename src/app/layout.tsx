@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-    title: 'Syntec Medipharma',
+    title: 'Syntec Medi Pharma',
     description:
         'Licensed B2B pharma wholesaler supplying authentic allopathic medicines to chemists and clinics—batch‑verified stock, competitive bulk pricing, and fast nationwide delivery.',
     icons: [

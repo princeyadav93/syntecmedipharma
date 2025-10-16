@@ -6,6 +6,7 @@ import ProductCard from '@/components/ProductCard';
 import SearchBar from '@/components/SearchBar';
 import toast from 'react-hot-toast';
 import UserFilterCategory from '@/components/UserFilterCategory';
+import { useSearchParams } from 'next/navigation';
 
 export default function ProductsPage() {
     const {
@@ -24,6 +25,7 @@ export default function ProductsPage() {
     } = useProductStore();
 
     const loadMoreRef = useRef<HTMLDivElement | null>(null);
+    const searchParams = useSearchParams();
 
     // Filtering logic
     const filtered = products.filter((p) => {
@@ -46,6 +48,14 @@ export default function ProductsPage() {
     useEffect(() => {
         fetchProducts();
     }, [fetchProducts]);
+
+    useEffect(() => {
+        const catFromQuery = searchParams.get('category');
+        if (catFromQuery && catFromQuery !== category) {
+            setCategory(catFromQuery);
+        }
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // Error → toast
     useEffect(() => {

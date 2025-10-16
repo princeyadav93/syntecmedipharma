@@ -7,20 +7,36 @@ const features = [
         description:
             'Our tablets cover everything from essential generics to specialized formulations, ensuring consistent quality and effective treatment options for pharmacies and hospitals.',
         image: '/assets/tablets.avif',
-        href: '/#',
+        href: '/products?category=syrups',
     },
     {
         title: 'Premium Soft Gels   ',
         description:
             ' Designed for better absorption and patient convenience, our soft gels and capsules meet the highest industry standards for safety and reliability',
         image: '/assets/soft-gel.avif',
-        href: '/#',
+        href: '/products?category=Ayurvedic Syrups',
     },
     {
         title: 'Authentic Ayurvedic Syrups',
         description:
             'Combining ancient herbal wisdom with modern practices, our Ayurvedic syrups promote natural wellness while maintaining trusted purity and efficacy..',
         image: '/assets/ayur-syrup.avif',
+        href: '/products?category=hard gelatin capsules',
+    },
+    {
+        title: 'Hard Gelatin Capsules',
+        description:
+            'Crafted for versatile dosing and maximum stability, our hard gelatin capsules provide precise pharmaceutical delivery in a convenient form. These capsules are manufactured to strict quality standards, ensuring reliable disintegration and absorption for a wide range of medications and supplements across pharmacy and hospital needs.',
+        image: '/assets/Hard-gelatin-capsules.jpg',
+        href: '/#',
+    },
+    {
+        title: 'Injections',
+        description: `Engineered for safety and rapid action
+                our injections deliver precise and reliable results
+                for hospital and pharmacy needs.
+                Trusted for effectiveness across all treatments.`,
+        image: '/assets/injections.avif',
         href: '/#',
     },
 ];

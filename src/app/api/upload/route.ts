@@ -2,7 +2,7 @@
 import { NextResponse } from 'next/server';
 import cloudinary from '@/lib/cloudinary';
 
-async function uploadToCloudinary(file: File): Promise<string> {
+async function uploadToCloudinary(file: File) {
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
@@ -10,9 +10,12 @@ async function uploadToCloudinary(file: File): Promise<string> {
         const stream = cloudinary.uploader.upload_stream(
             { folder: 'products' },
             (error, result) => {
-                if (error) reject(error);
-                else if (result?.secure_url) resolve(result.secure_url);
-                else reject(new Error('Upload failed'));
+                if (error || !result)
+                    return reject(error || new Error('Upload failed'));
+                resolve({
+                    url: result.secure_url,
+                    public_id: result.public_id, // important!
+                });
             }
         );
         stream.end(buffer);
@@ -21,7 +24,6 @@ async function uploadToCloudinary(file: File): Promise<string> {
 
 export async function POST(req: Request) {
     try {
-        // Parse multipart/form-data directly
         const formData = await req.formData();
         const files = formData.getAll('file') as File[];
 
@@ -32,10 +34,9 @@ export async function POST(req: Request) {
             );
         }
 
-        // Upload all files to Cloudinary
-        const uploadedUrls = await Promise.all(files.map(uploadToCloudinary));
+        const uploadedImages = await Promise.all(files.map(uploadToCloudinary));
 
-        return NextResponse.json({ urls: uploadedUrls });
+        return NextResponse.json({ images: uploadedImages });
     } catch (err) {
         console.error('Cloudinary upload failed:', err);
         return NextResponse.json({ error: 'Upload failed' }, { status: 500 });
