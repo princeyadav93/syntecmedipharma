@@ -14,6 +14,7 @@ export enum ProductCategory {
     Soaps = 'soaps',
     Gels = 'gels',
     Mouthwash = 'mouthwash',
+    Tablets = 'tablets',
 }
 
 export interface IProduct {
