@@ -4,9 +4,13 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-type Product = {
+export type ImageObject = {
+    url: string;
+    public_id: string;
+};
+export type Product = {
     _id: string;
-    images: string[];
+    images: ImageObject[];
     brandName: string;
     composition: string;
     category: string;
@@ -39,7 +43,7 @@ export default function ProductCard({ product }: { product: Product }) {
                         <Image
                             width={200}
                             height={200}
-                            src={product.images[0]}
+                            src={product.images?.[0]?.url}
                             alt={product.brandName}
                             className="w-full h-full object-contain"
                         />

@@ -32,8 +32,8 @@ export async function POST(req: Request) {
             !composition?.trim() ||
             !category?.trim() ||
             !description?.trim() ||
-            !mrp ||
-            !quantity ||
+            mrp === undefined ||
+            quantity === undefined ||
             !unit
         ) {
             // Validation failed — cleanup Cloudinary images

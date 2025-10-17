@@ -1,8 +1,12 @@
 import { create } from 'zustand';
 
+export type ImageObject = {
+    url: string;
+    public_id: string;
+};
 export type Product = {
     _id: string;
-    images: string[];
+    images: ImageObject[];
     brandName: string;
     composition: string;
     category: string;

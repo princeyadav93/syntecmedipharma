@@ -4,8 +4,13 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import Image from 'next/image';
 
+export type ImageObject = {
+    url: string;
+    public_id: string;
+};
+
 interface ProductGalleryProps {
-    images: string[];
+    images: ImageObject[];
     productName: string;
 }
 
@@ -26,11 +31,12 @@ export const ProductGallery = ({
     return (
         <div className="space-y-4">
             {/* Main Image Display */}
-            <div className="relative aspect-square overflow-hidden rounded-2xl bg-secondary">
+            <div className="relative aspect-square overflow-hidden rounded-2xl shadow-lg bg-secondary">
                 <AnimatePresence mode="wait">
                     <motion.img
                         key={selectedImage}
-                        src={images[selectedImage]}
+                        // ✅ access .url property here
+                        src={images[selectedImage]?.url || '/placeholder.png'}
                         alt={`${productName} - Image ${selectedImage + 1}`}
                         className="w-full h-full object-contain"
                         initial={{ opacity: 0, scale: 1.1 }}
@@ -71,7 +77,7 @@ export const ProductGallery = ({
                 <div className="grid grid-cols-4 gap-3">
                     {images.map((image, index) => (
                         <motion.button
-                            key={index}
+                            key={image.public_id}
                             whileHover={{ scale: 1.05 }}
                             whileTap={{ scale: 0.95 }}
                             onClick={() => setSelectedImage(index)}
@@ -83,7 +89,8 @@ export const ProductGallery = ({
                         >
                             <Image
                                 fill
-                                src={image}
+                                // ✅ use image.url here as well
+                                src={image.url}
                                 alt={`${productName} thumbnail ${index + 1}`}
                                 className="w-full h-full object-cover"
                             />

@@ -34,7 +34,10 @@ export default function ProductsPage() {
             p.brandName.toLowerCase().includes(query.toLowerCase()) ||
             p.composition.toLowerCase().includes(query.toLowerCase());
 
-        return matchesCategory && matchesSearch;
+        // ✅ Only show published products to clients
+        const isPublished = p.publish === true;
+
+        return matchesCategory && matchesSearch && isPublished;
     });
 
     const visibleProducts = filtered.slice(0, visibleCount);
@@ -67,7 +70,7 @@ export default function ProductsPage() {
 
     // Infinite scroll
     useEffect(() => {
-        const node = loadMoreRef.current; // ✅ capture it at the start
+        const node = loadMoreRef.current;
         if (!node) return;
 
         const observer = new IntersectionObserver(
@@ -80,7 +83,7 @@ export default function ProductsPage() {
         observer.observe(node);
 
         return () => {
-            observer.unobserve(node); // ✅ cleanup uses same node
+            observer.unobserve(node);
         };
     }, [filtered, incrementVisibleCount]);
 

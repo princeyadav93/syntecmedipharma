@@ -1,8 +1,9 @@
 import mongoose, { Schema } from 'mongoose';
 
 export enum QuantityUnit {
-    PACKET = 'packet',
+    MG = 'mg',
     ML = 'ml',
+    GRAM = 'gram',
 }
 export enum ProductCategory {
     HGC = 'hard gelatin capsules',
@@ -27,25 +28,25 @@ export interface IProduct {
     category: string;
 }
 
-const ProductSchema = new Schema<IProduct>(
+export const imageSchema = new Schema(
     {
-        images: [{ type: String, required: true }],
+        url: { type: String, required: true },
+        public_id: { type: String, required: true },
+    },
+    { _id: false }
+);
+
+const ProductSchema = new Schema(
+    {
         brandName: { type: String, required: true },
         composition: { type: String, required: true },
-        description: { type: String },
+        category: { type: String, required: true },
+        description: { type: String, required: true },
         mrp: { type: Number, required: true },
         quantity: { type: Number, required: true },
-        unit: {
-            type: String,
-            enum: Object.values(QuantityUnit),
-            required: true,
-        },
+        unit: { type: String, required: true },
+        images: { type: [imageSchema], required: true }, // 👈 update this!
         publish: { type: Boolean, default: false },
-        category: {
-            type: String,
-            enum: Object.values(ProductCategory),
-            required: true,
-        },
     },
     { timestamps: true }
 );

@@ -33,7 +33,7 @@ export default function AddProductForm() {
         mrp: '',
         quantity: '',
         category: ProductCategory.HGC,
-        unit: QuantityUnit.PACKET,
+        unit: QuantityUnit.ML,
         publish: false,
     });
 
@@ -132,7 +132,7 @@ export default function AddProductForm() {
                 description: '',
                 mrp: '',
                 quantity: '',
-                unit: QuantityUnit.PACKET,
+                unit: QuantityUnit.ML,
                 publish: false,
             });
             setFileInputs([[]]);
@@ -437,11 +437,14 @@ export default function AddProductForm() {
                                             onChange={handleChange}
                                             className="px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 bg-white cursor-pointer"
                                         >
-                                            <option value={QuantityUnit.PACKET}>
-                                                Packet
-                                            </option>
                                             <option value={QuantityUnit.ML}>
-                                                ML
+                                                Ml
+                                            </option>
+                                            <option value={QuantityUnit.MG}>
+                                                Mg
+                                            </option>
+                                            <option value={QuantityUnit.GRAM}>
+                                                Gram
                                             </option>
                                         </select>
                                     </div>

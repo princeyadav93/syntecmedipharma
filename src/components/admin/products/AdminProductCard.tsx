@@ -25,7 +25,7 @@ export default function AdminProductCard({
                 <div className="bg-white/70 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
                     <div className="flex items-center space-x-6">
                         <Image
-                            src={product.images[0]}
+                            src={product.images?.[0]?.url}
                             alt={product.brandName}
                             width={96}
                             height={96}
@@ -119,7 +119,7 @@ export default function AdminProductCard({
             <div className="bg-white/70 rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition group">
                 <div className="relative">
                     <Image
-                        src={product.images[0]}
+                        src={product.images?.[0]?.url}
                         alt={product.brandName}
                         width={640}
                         height={480}
