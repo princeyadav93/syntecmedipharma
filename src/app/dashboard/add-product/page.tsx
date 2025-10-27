@@ -11,6 +11,7 @@ import {
     FileText,
     Image as ImageIcon,
 } from 'lucide-react';
+import LogOutComp from '@/components/LogOutComp';
 
 export interface ProductFormValues {
     images: string[];
@@ -146,6 +147,7 @@ export default function AddProductForm() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 py-12 px-4">
+            <LogOutComp />
             <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}

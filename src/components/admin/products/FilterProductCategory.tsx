@@ -46,7 +46,7 @@ export default function FilterProductCategory({
                 <button
                     key={cat.value}
                     onClick={() => setCategory(cat.value)}
-                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-all duration-200 ${
+                    className={`w-full flex items-center justify-between px-4 py-3 rounded-xl text-left transition-all duration-200 cursor-pointer ${
                         category === cat.value
                             ? 'bg-blue-50 text-blue-700 border-2 border-blue-200 shadow-sm'
                             : 'bg-white/60 text-gray-700 border border-gray-200 hover:bg-white hover:shadow-sm'

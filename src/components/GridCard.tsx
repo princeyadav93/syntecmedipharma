@@ -6,21 +6,21 @@ const features = [
         title: 'Wide Range of Tablets',
         description:
             'Our tablets cover everything from essential generics to specialized formulations, ensuring consistent quality and effective treatment options for pharmacies and hospitals.',
-        image: '/assets/tablets.avif',
+        image: '/assets/tablets.jpg',
         href: '/products?category=tablets',
     },
     {
         title: 'Premium Soft Gels   ',
         description:
             ' Designed for better absorption and patient convenience, our soft gels and capsules meet the highest industry standards for safety and reliability',
-        image: '/assets/soft-gel.avif',
+        image: '/assets/gels.jpg',
         href: '/products?category=gels',
     },
     {
         title: 'Authentic Ayurvedic Syrups',
         description:
             'Combining ancient herbal wisdom with modern practices, our Ayurvedic syrups promote natural wellness while maintaining trusted purity and efficacy..',
-        image: '/assets/ayur-syrup.avif',
+        image: '/assets/syrups.jpg',
         href: '/products?category=syrups',
     },
     {

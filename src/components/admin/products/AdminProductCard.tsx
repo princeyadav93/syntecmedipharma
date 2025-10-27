@@ -23,7 +23,7 @@ export default function AdminProductCard({
         return (
             <>
                 <div className="bg-white/70 rounded-2xl p-6 shadow-sm hover:shadow-md transition">
-                    <div className="flex items-center space-x-6">
+                    <div className="flex items-center space-x-6 ">
                         <Image
                             src={product.images?.[0]?.url}
                             alt={product.brandName}
@@ -69,10 +69,10 @@ export default function AdminProductCard({
                             </div>
                         </div>
 
-                        <div className="flex items-center space-x-3">
+                        <div className="flex items-center space-x-3 ">
                             <button
                                 onClick={() => onTogglePublish(product._id)}
-                                className={`p-2 rounded-xl ${
+                                className={`p-2 rounded-xl cursor-pointer ${
                                     product.publish
                                         ? 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200'
                                         : 'bg-green-100 text-green-700 hover:bg-green-200'
@@ -163,7 +163,7 @@ export default function AdminProductCard({
                     <div className="flex space-x-3">
                         <button
                             onClick={() => onTogglePublish(product._id)}
-                            className={`flex-1 flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-medium ${
+                            className={`flex-1 flex items-center justify-center px-3 py-2.5 rounded-xl text-xs font-medium cursor-pointer ${
                                 product.publish
                                     ? 'bg-yellow-100 text-yellow-700 hover:bg-yellow-200 border'
                                     : 'bg-green-100 text-green-700 hover:bg-green-200 border'
@@ -178,13 +178,13 @@ export default function AdminProductCard({
                         </button>
                         <button
                             onClick={() => onEdit(product)}
-                            className="px-3 py-2.5 bg-blue-100 text-blue-700 hover:bg-blue-200 rounded-xl text-xs font-medium border"
+                            className="px-3 py-2.5 bg-blue-100 text-blue-700 hover:bg-blue-200 rounded-xl text-xs font-medium border cursor-pointer"
                         >
                             <Edit className="h-4 w-4" />
                         </button>
                         <button
                             onClick={() => setShowDeleteModal(true)}
-                            className="px-3 py-2.5 bg-red-100 text-red-700 hover:bg-red-200 rounded-xl text-xs font-medium border"
+                            className="px-3 py-2.5 bg-red-100 text-red-700 hover:bg-red-200 rounded-xl text-xs font-medium border cursor-pointer"
                         >
                             <Trash2 className="h-4 w-4" />
                         </button>

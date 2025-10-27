@@ -53,7 +53,7 @@ export default function ProductFilters({
                         <select
                             value={publishFilter}
                             onChange={(e) => setPublishFilter(e.target.value)}
-                            className="w-full p-3 border outline-0 rounded-xl focus:ring-blue-500 focus:border-blue-500"
+                            className="w-full p-3 border outline-0 rounded-xl focus:ring-blue-500 focus:border-blue-500 cursor-pointer"
                         >
                             <option value="all">All Products</option>
                             <option value="published">Published Only</option>

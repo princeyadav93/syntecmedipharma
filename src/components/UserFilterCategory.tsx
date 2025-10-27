@@ -47,10 +47,14 @@ export default function UserFilterCategory({
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="w-full px-4 py-3 rounded-xl border border-gray-300 bg-white/60 text-gray-700 
-                   focus:outline-none focus:ring-2 focus:ring-[#0e8b8b] focus:border[#0e8b8b]"
+                   focus:outline-none focus:ring-2 focus:ring-[#0e8b8b] focus:border[#0e8b8b] capitalize"
             >
                 {categories.map((cat) => (
-                    <option key={cat.value} value={cat.value}>
+                    <option
+                        className="capitalize"
+                        key={cat.value}
+                        value={cat.value}
+                    >
                         {cat.label}
                     </option>
                 ))}

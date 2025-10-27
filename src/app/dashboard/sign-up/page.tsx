@@ -30,6 +30,7 @@ export default function SignUpPage() {
             formData.uniqueCode !== process.env.NEXT_PUBLIC_SIGNUP_SECRET_CODE
         ) {
             setMsg('Invalid unique code (client check).');
+            setLoading(false);
             return;
         }
 
@@ -80,6 +81,7 @@ export default function SignUpPage() {
                     type={showCode ? 'text' : 'password'}
                     name="uniqueCode"
                     placeholder="Unique Code"
+                    onChange={handleChange}
                     className="w-full p-2 border rounded"
                 />
                 <button
