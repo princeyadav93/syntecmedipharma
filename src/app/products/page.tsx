@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { Suspense, useEffect, useRef } from 'react';
 import { useProductStore } from '@/store/useProductStore';
 import ProductCard from '@/components/ProductCard';
 import SearchBar from '@/components/SearchBar';
@@ -8,7 +8,7 @@ import toast from 'react-hot-toast';
 import UserFilterCategory from '@/components/UserFilterCategory';
 import { useSearchParams } from 'next/navigation';
 
-export default function ProductsPage() {
+function ProductsContent() {
     const {
         products,
         query,
@@ -33,34 +33,30 @@ export default function ProductsPage() {
         const matchesSearch =
             p.brandName.toLowerCase().includes(query.toLowerCase()) ||
             p.composition.toLowerCase().includes(query.toLowerCase());
-
-        // ✅ Only show published products to clients
         const isPublished = p.publish === true;
-
         return matchesCategory && matchesSearch && isPublished;
     });
 
     const visibleProducts = filtered.slice(0, visibleCount);
 
-    // Reset visible count on filter changes
     useEffect(() => {
         setVisibleCount(6);
     }, [query, category, publishFilter, setVisibleCount]);
 
-    // Load products on mount
     useEffect(() => {
         fetchProducts();
     }, [fetchProducts]);
 
     useEffect(() => {
-        const catFromQuery = searchParams.get('category');
-        if (catFromQuery && catFromQuery !== category) {
-            setCategory(catFromQuery);
+        // ✅ Guard for client environment
+        if (typeof window !== 'undefined') {
+            const catFromQuery = searchParams.get('category');
+            if (catFromQuery && catFromQuery !== category) {
+                setCategory(catFromQuery);
+            }
         }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
+    }, [searchParams, category, setCategory]);
 
-    // Error → toast
     useEffect(() => {
         if (error) {
             toast.error(error);
@@ -68,7 +64,6 @@ export default function ProductsPage() {
         }
     }, [error, clearError]);
 
-    // Infinite scroll
     useEffect(() => {
         const node = loadMoreRef.current;
         if (!node) return;
@@ -83,7 +78,7 @@ export default function ProductsPage() {
         observer.observe(node);
 
         return () => {
-            observer.unobserve(node);
+            observer.disconnect();
         };
     }, [filtered, incrementVisibleCount]);
 
@@ -94,7 +89,6 @@ export default function ProductsPage() {
                     Syntecmedipharma Products
                 </h1>
 
-                {/* Search + Filter */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
                     <SearchBar value={query} onChange={setQuery} />
                     <UserFilterCategory
@@ -103,7 +97,6 @@ export default function ProductsPage() {
                     />
                 </div>
 
-                {/* Grid */}
                 <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     {visibleProducts.map((product) => (
                         <ProductCard key={product._id} product={product} />
@@ -116,7 +109,6 @@ export default function ProductsPage() {
                     )}
                 </div>
 
-                {/* Infinite Scroll Trigger */}
                 {visibleCount < filtered.length && (
                     <div ref={loadMoreRef} className="py-8 flex justify-center">
                         Loading more products...
@@ -124,5 +116,17 @@ export default function ProductsPage() {
                 )}
             </div>
         </main>
+    );
+}
+
+export default function ProductsPage() {
+    return (
+        <Suspense
+            fallback={
+                <div className="text-center py-12">Loading products...</div>
+            }
+        >
+            <ProductsContent />
+        </Suspense>
     );
 }
