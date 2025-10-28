@@ -44,7 +44,7 @@ const features = [
     {
         title: 'Effective Topical Creams',
         description: `Formulated with precision and care, our range of topical creams delivers targeted relief and treatment for various skin conditions. Each formulation combines advanced pharmaceutical science with high-quality ingredients to ensure safety, efficacy, and patient comfort. Trusted by healthcare professionals for consistent performance and reliable results.`,
-        image: '/assets/creams.jpg',
+        image: '/assets/creamss.jpg',
         href: '/products?category=creams',
     },
     {
