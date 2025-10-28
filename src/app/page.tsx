@@ -7,7 +7,7 @@ import Hero from '@/components/Hero';
 export const metadata: Metadata = {
     title: 'Syntec Medipharma',
     description:
-        'Licensed B2B pharma wholesaler supplying authentic allopathic medicines to chemists and clinics—batch‑verified stock, competitive bulk pricing, and fast nationwide delivery.',
+        'Licensed B2B pharma wholesaler supplying authentic and quality medicines to customers—batch‑verified stock, competitive bulk pricing, and fast nationwide delivery.',
 };
 
 export default function Home() {
