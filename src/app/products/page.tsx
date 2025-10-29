@@ -47,15 +47,20 @@ function ProductsContent() {
         fetchProducts();
     }, [fetchProducts]);
 
+    const initializedFromQuery = useRef(false);
+
     useEffect(() => {
-        // ✅ Guard for client environment
-        if (typeof window !== 'undefined') {
-            const catFromQuery = searchParams.get('category');
-            if (catFromQuery && catFromQuery !== category) {
-                setCategory(catFromQuery);
-            }
+        const catFromQuery = searchParams.get('category');
+        if (
+            !initializedFromQuery.current &&
+            catFromQuery &&
+            catFromQuery !== category
+        ) {
+            setCategory(catFromQuery);
+            initializedFromQuery.current = true;
         }
-    }, [searchParams, category, setCategory]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [searchParams]);
 
     useEffect(() => {
         if (error) {
