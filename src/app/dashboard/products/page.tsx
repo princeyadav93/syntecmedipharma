@@ -8,6 +8,7 @@ import ProductFilters from '@/components/admin/products/ProductFilters';
 import AdminProductCard from '@/components/admin/products/AdminProductCard';
 import EditProductModal from '@/components/admin/products/EditProductModal';
 import { useProductStore } from '@/store/useProductStore';
+import LogOutComp from '@/components/LogOutComp';
 
 export default function AdminProductsPage() {
     const {
@@ -93,6 +94,7 @@ export default function AdminProductsPage() {
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50">
+            <LogOutComp />
             <AdminHeader viewMode={viewMode} setViewMode={setViewMode} />
 
             <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">

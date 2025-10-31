@@ -1,6 +1,5 @@
 'use client';
-import { Grid, List, Package, Plus } from 'lucide-react';
-import Link from 'next/link';
+import { Grid, List, Package } from 'lucide-react';
 
 export default function AdminHeader({
     viewMode,
@@ -26,16 +25,6 @@ export default function AdminHeader({
                     {/* Right Section */}
 
                     <div className="flex items-center space-x-3 w-full sm:w-auto justify-end flex-wrap gap-2">
-                        <Link href="/dashboard/add-product/">
-                            <button className="flex-1 sm:flex-none inline-flex items-center justify-center px-3 sm:px-4 py-2 bg-theme text-white rounded-lg  cursor-pointer shadow-sm hover:shadow-md text-sm sm:text-base">
-                                <Plus className="h-4 w-4 mr-2" />
-                                Add
-                                <span className="hidden sm:inline">
-                                    &nbsp;Product
-                                </span>
-                            </button>
-                        </Link>
-
                         <div className="flex items-center bg-white rounded-lg border border-gray-200 p-1 ">
                             <button
                                 onClick={() => setViewMode('grid')}

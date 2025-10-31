@@ -11,6 +11,7 @@ import {
     Loader2,
     User,
 } from 'lucide-react';
+import { useProductStore } from '@/store/useProductStore';
 
 // Define the primary color (Dark Teal)
 const PRIMARY_COLOR = '#0e8b8b';
@@ -18,20 +19,15 @@ const PRIMARY_ACCENT_STYLE = { backgroundColor: PRIMARY_COLOR, color: 'white' };
 const HOVER_ACCENT_STYLE = { backgroundColor: 'rgba(14, 139, 139, 0.1)' }; // Light transparent teal for hover
 
 export default function LogOutComp() {
-    const [user, setUser] = useState<{ name: string } | null>(null);
     const router = useRouter();
     const [loading, setLoading] = useState(false);
+    const { fetchUser, user } = useProductStore();
 
     useEffect(() => {
-        async function fetchUser() {
-            const res = await fetch('/api/auth/me');
-            if (res.ok) {
-                const data = await res.json();
-                setUser(data.user);
-            }
+        if (!user.name) {
+            fetchUser();
         }
-        fetchUser();
-    }, []);
+    });
 
     const handleLogout = async () => {
         setLoading(true);
@@ -47,18 +43,23 @@ export default function LogOutComp() {
                 {/* Left Section: Dashboard Title */}
                 <div className="flex items-center gap-3 text-gray-900">
                     {/* Icon uses the accent color */}
-                    <LayoutDashboard
-                        className="w-6 h-6"
-                        style={{ color: PRIMARY_COLOR }}
-                    />
-                    <h1 className="text-xl font-extrabold tracking-tight">
-                        Admin Portal
+                    <h1 className="text-theme-two text-xl font-extrabold tracking-tight">
+                        Admin Panel
                     </h1>
                 </div>
 
                 {/* Center Section: Navigation Links */}
                 <div className="hidden md:flex gap-4">
                     {/* View Products Link - Text/Hover accent */}
+                    <Link href="/dashboard" passHref>
+                        <button
+                            className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-700 hover:text-gray-900 cursor-pointer"
+                            style={HOVER_ACCENT_STYLE}
+                        >
+                            <LayoutDashboard className="w-4 h-4" />
+                            Dashboard
+                        </button>
+                    </Link>
                     <Link href="/dashboard/products" passHref>
                         <button
                             className="flex items-center gap-2 px-3 py-1.5 text-sm font-medium rounded-lg transition-colors duration-200 text-gray-700 hover:text-gray-900 cursor-pointer"

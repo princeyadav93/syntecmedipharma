@@ -16,6 +16,10 @@ export type Product = {
     mrp: number;
     publish: boolean;
 };
+export type User = {
+    name: string;
+    email: string;
+};
 
 type ProductStore = {
     products: Product[];
@@ -28,10 +32,12 @@ type ProductStore = {
     editingProduct: Product | null;
     loading: boolean;
     error: string | null;
+    user: User;
 
     // Actions
     setProducts: (products: Product[]) => void;
     fetchProducts: () => Promise<void>;
+    fetchUser: () => Promise<void>;
     setQuery: (query: string) => void;
     setCategory: (category: string) => void;
     setPublishFilter: (filter: string) => void;
@@ -58,6 +64,7 @@ export const useProductStore = create<ProductStore>((set) => ({
     editingProduct: null,
     loading: false,
     error: null,
+    user: { name: '', email: '' },
 
     setProducts: (products) => set({ products }),
 
@@ -71,6 +78,20 @@ export const useProductStore = create<ProductStore>((set) => ({
         } catch (err: any) {
             set({
                 error: err.message || 'Error fetching products',
+                loading: false,
+            });
+        }
+    },
+    fetchUser: async () => {
+        try {
+            const res = await fetch('/api/auth/me');
+            if (!res.ok) throw new Error('Failed to fetch User');
+            const data = await res.json();
+            console.log(data);
+            set({ user: data, error: null });
+        } catch (err: any) {
+            set({
+                error: err.message || 'Error fetching User',
                 loading: false,
             });
         }
