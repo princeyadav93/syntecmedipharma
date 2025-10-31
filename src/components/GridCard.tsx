@@ -12,13 +12,6 @@ const features = [
         href: '/products?category=tablets',
     },
     {
-        title: 'Premium Soft Gels   ',
-        description:
-            ' Designed for better absorption and patient convenience, our soft gels and capsules meet the highest industry standards for safety and reliability',
-        image: '/assets/gels.jpg',
-        href: '/products?category=gels',
-    },
-    {
         title: 'Authentic Ayurvedic Syrups',
         description:
             'Combining ancient herbal wisdom with modern practices, our Ayurvedic syrups promote natural wellness while maintaining trusted purity and efficacy..',
@@ -46,6 +39,13 @@ const features = [
         description: `Formulated with precision and care, our range of topical creams delivers targeted relief and treatment for various skin conditions. Each formulation combines advanced pharmaceutical science with high-quality ingredients to ensure safety, efficacy, and patient comfort. Trusted by healthcare professionals for consistent performance and reliable results.`,
         image: '/assets/creamss.jpg',
         href: '/products?category=creams',
+    },
+    {
+        title: 'Premium Soft Gels   ',
+        description:
+            ' Designed for better absorption and patient convenience, our soft gels and capsules meet the highest industry standards for safety and reliability',
+        image: '/assets/gels.jpg',
+        href: '/products?category=gels',
     },
     {
         title: 'Medicated Soaps',

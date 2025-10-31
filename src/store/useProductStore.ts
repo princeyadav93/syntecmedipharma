@@ -87,7 +87,6 @@ export const useProductStore = create<ProductStore>((set) => ({
             const res = await fetch('/api/auth/me');
             if (!res.ok) throw new Error('Failed to fetch User');
             const data = await res.json();
-            console.log(data);
             set({ user: data, error: null });
         } catch (err: any) {
             set({
