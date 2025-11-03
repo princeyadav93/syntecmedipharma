@@ -338,13 +338,18 @@ export default function AddProductForm() {
                                         <option value={ProductCategory.Soaps}>
                                             Soaps
                                         </option>
-                                        <option value={ProductCategory.Gels}>
-                                            Gels
+                                        <option
+                                            value={ProductCategory.Softgels}
+                                        >
+                                            Softgels
                                         </option>
                                         <option
                                             value={ProductCategory.Mouthwash}
                                         >
                                             Mouthwash
+                                        </option>
+                                        <option value={ProductCategory.Tablets}>
+                                            Tablets
                                         </option>
                                     </select>
                                 </div>

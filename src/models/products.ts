@@ -12,7 +12,7 @@ export enum ProductCategory {
     Creams = 'creams',
     Sachets = 'sachets',
     Soaps = 'soaps',
-    Gels = 'gels',
+    Softgels = 'Softgels',
     Mouthwash = 'mouthwash',
     Tablets = 'tablets',
 }
