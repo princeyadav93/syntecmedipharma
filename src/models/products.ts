@@ -15,6 +15,7 @@ export enum ProductCategory {
     Softgels = 'Softgels',
     Mouthwash = 'mouthwash',
     Tablets = 'tablets',
+    DrySyrups = 'dry syrups',
 }
 
 export interface IProduct {
@@ -23,7 +24,7 @@ export interface IProduct {
     composition: string;
     description?: string;
     mrp: number;
-    quantity: number;
+    quantity: string;
     unit: QuantityUnit;
     publish: boolean;
     category: string;
@@ -44,7 +45,7 @@ const ProductSchema = new Schema(
         category: { type: String, required: true },
         description: { type: String, required: true },
         mrp: { type: Number, required: true },
-        quantity: { type: Number, required: true },
+        quantity: { type: String, required: true },
         unit: { type: String, required: true },
         images: { type: [imageSchema], required: true }, // 👈 update this!
         publish: { type: Boolean, default: false },

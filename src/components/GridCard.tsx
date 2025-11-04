@@ -12,9 +12,9 @@ const features = [
         href: '/products?category=tablets',
     },
     {
-        title: 'Authentic Ayurvedic Syrups',
+        title: 'Authentic Syrups',
         description:
-            'Combining ancient herbal wisdom with modern practices, our Ayurvedic syrups promote natural wellness while maintaining trusted purity and efficacy..',
+            'Authentic Syrups are scientifically formulated to provide effective relief and support faster recovery. Made with high-quality ingredients and precise composition, they ensure safe and reliable results for everyday wellness needs.',
         image: '/assets/syrups.jpg',
         href: '/products?category=syrups',
     },
@@ -45,7 +45,7 @@ const features = [
         description:
             ' Designed for better absorption and patient convenience, our soft gels and capsules meet the highest industry standards for safety and reliability',
         image: '/assets/gels.jpg',
-        href: '/products?category=gels',
+        href: '/products?category=Softgels',
     },
     {
         title: 'Medicated Soaps',
@@ -64,6 +64,12 @@ const features = [
         description: `Our range of medicated mouthwashes is formulated to ensure long-lasting freshness and protection against germs. They help reduce plaque, prevent bad breath, and maintain healthy gums. Ideal for daily oral care, these mouthwashes leave your mouth clean, refreshed, and protected.`,
         image: '/assets/mouthwashs.avif',
         href: '/products?category=mouthwash',
+    },
+    {
+        title: 'Dry Syrups',
+        description: `Dry syrups are powdered formulations that become liquid suspensions when mixed with a specific amount of water. They are commonly used for pediatric and geriatric patients who have difficulty swallowing tablets or capsules. These syrups ensure accurate dosing, extended shelf life, and improved palatability for better patient compliance.`,
+        image: '/assets/drysyrup.avif',
+        href: '/products?category=dry syrups',
     },
 ];
 

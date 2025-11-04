@@ -111,7 +111,6 @@ export default function AddProductForm() {
                 ...form,
                 images: uploadedImages, // full objects (not just URLs)
                 mrp: Number(form.mrp),
-                quantity: Number(form.quantity),
             };
 
             // 3️⃣ Save product
@@ -351,6 +350,11 @@ export default function AddProductForm() {
                                         <option value={ProductCategory.Tablets}>
                                             Tablets
                                         </option>
+                                        <option
+                                            value={ProductCategory.DrySyrups}
+                                        >
+                                            Dry Syrups
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -419,23 +423,16 @@ export default function AddProductForm() {
 
                                 <div className="space-y-2">
                                     <label className="text-sm font-medium text-gray-700">
-                                        Quantity & Unit
+                                        Strength & Unit
                                     </label>
                                     <div className="flex gap-2">
                                         <input
                                             type="text"
-                                            inputMode="numeric"
-                                            pattern="[0-9]*"
                                             name="quantity"
                                             placeholder="0"
                                             value={form.quantity}
                                             required
-                                            onChange={(e) => {
-                                                const value = e.target.value;
-                                                if (/^\d{0,6}$/.test(value)) {
-                                                    handleChange(e);
-                                                }
-                                            }}
+                                            onChange={handleChange}
                                             className="w-full flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-[#0e8b8b] focus:border-transparent transition-all duration-200 placeholder-gray-400 outline-0"
                                         />
                                         <select

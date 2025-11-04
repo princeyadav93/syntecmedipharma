@@ -22,6 +22,7 @@ export async function POST(req: Request) {
             unit,
             images: productImages,
         } = body;
+        console.log(body);
 
         // Assign images for potential cleanup
         images = productImages;
@@ -33,7 +34,7 @@ export async function POST(req: Request) {
             !category?.trim() ||
             !description?.trim() ||
             mrp === undefined ||
-            quantity === undefined ||
+            !quantity?.trim() ||
             !unit
         ) {
             // Validation failed — cleanup Cloudinary images
@@ -62,8 +63,8 @@ export async function POST(req: Request) {
                 composition,
                 category,
                 description,
-                mrp: Number(mrp),
-                quantity: Number(quantity),
+                mrp,
+                quantity,
                 unit,
                 images, // [{url, public_id}]
                 publish: false,
